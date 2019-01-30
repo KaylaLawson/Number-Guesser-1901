@@ -2,6 +2,7 @@
 
 var updateBtn = document.querySelector('.update-btn');
 var submitBtn = document.querySelector('.submit-guess-btn');
+var resetBtn = document.querySelector('.reset-game-btn');
 var displayCurMin = document.querySelector('.cur-min');
 var displayCurMax = document.querySelector('.cur-max');
 var chalName1Input = document.querySelector('.chal-name-1');
@@ -11,6 +12,8 @@ var chalName2Input = document.querySelector('.chal-name-2');
 
 updateBtn.addEventListener('click', setRange);
 submitBtn.addEventListener('click', submitGuess)
+resetBtn.addEventListener('click', resetInputs);
+
 
 
 
@@ -37,14 +40,9 @@ function randomNumber(min, max) {
 }
 
 
-
-
-
-
 function submitGuess(event) {
     
     event.preventDefault();
-   
     var guessOne = parseInt(document.querySelector('.chal-guess-1').value);
     var guessTwo = parseInt(document.querySelector('.chal-guess-2').value);
     var guessOneDisplay = document.querySelector('.guess-display-1');
@@ -59,7 +57,23 @@ function submitGuess(event) {
 
 }
 
-// submit guesses
-// var for each 5 input 
-// change the latest score values for name and guess
-//names should be local and guesses should be global
+// reset button
+// set a class for inputs
+// queryselectorall that class
+// method for each
+  
+  
+  function resetInputs(event) {
+ 
+    event.preventDefault();
+
+    var inputsArray = document.querySelectorAll('.inputs');
+
+    inputsArray.forEach(function(element) {
+      element.value = "";
+      element.placeholder = 'Enter'
+    })
+
+
+
+}
