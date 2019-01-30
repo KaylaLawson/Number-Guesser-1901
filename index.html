@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Number Guesser</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <header>
@@ -21,20 +22,20 @@
         </form>
       </article>
       <article class="chal-info">
-        <p>The Current Range is<span class="cur-min">1</span>to<span class="cur-max">100</span></p>
+        <p>The Current Range is <span class="cur-min"> ? </span> to <span class="cur-max"> ? </span></p>
           <h4>Challenger 1</h4>
           <form class="chal-form">
-            <label class="chal-1-form-name">Name</label>
-            <input  class="inp-chal-1" type="text">
-            <label class="chal-1-form-guess">Guess</label>
-            <input class="inp-chal-2" type="text">
+            <label class="chal-name">Name</label>
+            <input  class="chal-name-1" type="text">
+            <label class="chall-guess">Guess</label>
+            <input class="chal-guess-1" type="number">
           </form>
         <h4>Challenger 2</h4>
         <form class="chal-form">
-            <label class="chal-2-form-name">Name</label>
-            <input  class="inp-chal-1" type="text">
-            <label class="chal-2-form-guess">Guess</label>
-            <input class="inp-chal-2" type="text">
+            <label class="chal-name">Name</label>
+            <input  class="chal-name-2" type="text">
+            <label class="chal-guess">Guess</label>
+            <input class="chal-guess-2" type="number">
         </form>
         <section class="game-btn">
           <button class="submit-guess-btn">SUBMIT GUESS</button>
@@ -76,4 +77,5 @@
     </section>
   </main>
 </body>
+<script type="text/javascript" src="main.js"></script>
 </html>
