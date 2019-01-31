@@ -10,6 +10,9 @@ var chalName1Input = document.querySelector('.chal-name-1');
 var chalName2Input = document.querySelector('.chal-name-2');
 var inputsArray = document.querySelectorAll('.inputs');
 var infoBox = document.querySelector('.chal-info');
+var guessOne = document.querySelector('.chal-guess-1');
+var guessTwo = document.querySelector('.chal-guess-2');
+var randoNum;
 
 // EVENT LISTENERS
 
@@ -42,25 +45,44 @@ infoBox.addEventListener('keyup', disableBtn);
 
 function randomNumber(min, max) {
   console.log(min, max);
-  var rando = Math.floor(Math.random()*(max-min))+ min;
-  console.log(rando);
-
+  randoNum = Math.floor(Math.random()*(max-min))+ min;
+  // return rando;
+  console.log(randoNum);
+  challengerAlert();
 }
 
+
+function challengerAlert() {
+    // console.log(number,'yes');
+    var checkGuessOne = parseInt(guessOne.value);
+    var checkGuessTwo = parseInt(guessTwo.value);
+    // console.log(checkGuessOne,'hi');
+    var alertChalOne = document.querySelector('.high-low-1');
+    var alertChalTwo = document.querySelector('high-low-2');
+  if (checkGuessOne === randoNum) {
+      alertChalOne.innerText = "Boom";
+      } else if (checkGuessOne < randoNum) {
+      alertChalOne.innerText = "Too low" 
+      } else { 
+        alertChalOne.innerText = "Too high"
+      }
+    }
 
   function submitGuess(event) {
     
     event.preventDefault();
-    var guessOne = parseInt(document.querySelector('.chal-guess-1').value);
-    var guessTwo = parseInt(document.querySelector('.chal-guess-2').value);
     var guessOneDisplay = document.querySelector('.guess-display-1');
     var guessTwoDisplay = document.querySelector('.guess-display-2');
     var lsNameChange1 = document.querySelector('.updated-name-1');
     var lsNameChange2 = document.querySelector('.updated-name-2');
-    guessOneDisplay.innerText = guessOne;
-    guessTwoDisplay.innerText = guessTwo;
+
+
+    guessOneDisplay.innerText = parseInt(guessOne.value);
+    guessTwoDisplay.innerText = parseInt(guessTwo.value);
     lsNameChange1.innerText = chalName1Input.value;
     lsNameChange2.innerText = chalName2Input.value;
+
+    challengerAlert();
 }
 
 
@@ -90,6 +112,8 @@ function disableBtn(event) {
          document.getElementById('disable-btn').disabled=false;
          document.getElementById('disable-btn1').disabled=false;
     }
+
+
 
 // random number results
 // for loop 
