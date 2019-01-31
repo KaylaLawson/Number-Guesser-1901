@@ -27,34 +27,34 @@
           <h4>Challenger 1</h4>
           <form class="chal-form">
             <label class="chal-name">Name</label>
-            <input  class="chal-name-1" type="text">
+            <input  class="chal-name-1 inputs" type="text">
             <label class="chall-guess">Guess</label>
-            <input class="chal-guess-1" type="number">
+            <input class="chal-guess-1 inputs" type="number">
           </form>
         <h4>Challenger 2</h4>
         <form class="chal-form">
             <label class="chal-name">Name</label>
-            <input  class="chal-name-2" type="text">
+            <input  class="chal-name-2 inputs" type="text">
             <label class="chal-guess">Guess</label>
-            <input class="chal-guess-2" type="number">
+            <input class="chal-guess-2 inputs" type="number">
         </form>
         <section class="game-btn">
           <button class="submit-guess-btn">SUBMIT GUESS</button>
-          <button class="reset-game-btn">RESET GAME</button>
-          <button class="clear-game-btn">CLEAR GAME</button>
+          <button class="reset-game-btn" id="disable-btn1" disabled="true">RESET GAME</button>
+          <button class="clear-game-btn" id="disable-btn" disabled="true">CLEAR GAME</button>
         </section>
       </article>   
       <article class="latest-score box-styling">
       <h4>Latest Score</h4>
         <div class="guess-container">
           <section class="chal-guess">
-            <h5>Challenger 1 Name</h5>
+            <h5 class="updated-name-1">Challenger 1 Name</h5>
             <span class="cur-guess">current guess</span>
             <h1 class="guess-display-1">97</h1>
             <span class="high-low-1">that's too high</span>
           </section>
           <section class="chal-guess">
-             <h5>Challenger 2 Name</h5>
+             <h5 class="updated-name-2">Challenger 2 Name</h5>
              <span class="cur-guess">current guess</ span>
              <h1 class="guess-display-2">3</h1>
              <span class="high-low-2">that's too low</span>
