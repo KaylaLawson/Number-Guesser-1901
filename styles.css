@@ -25,7 +25,6 @@ header {
 /*---------- Box Styling ------------*/
 .box-container {
   display: inline-flex;
-  justify-content: center;
   width: 100%;
 
 }
@@ -46,7 +45,6 @@ section.game-btn {
 }
 .chal-form {
   display: inline-flex;
-  justify-content: center;
   width: 100%;
 
 

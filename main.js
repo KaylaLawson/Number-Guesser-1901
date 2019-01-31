@@ -1,4 +1,4 @@
-// GLOBAL VARIABLES
+// GLOBAL VARIABLES  (ⓛﻌⓛ*)
 
 var updateBtn = document.querySelector('.update-btn');
 var submitBtn = document.querySelector('.submit-guess-btn');
@@ -14,7 +14,7 @@ var guessOne = document.querySelector('.chal-guess-1');
 var guessTwo = document.querySelector('.chal-guess-2');
 var randoNum;
 
-// EVENT LISTENERS
+// EVENT LISTENERS ʕ•ᴥ•ʔ
 
 updateBtn.addEventListener('click', setRange);
 submitBtn.addEventListener('click', submitGuess);
@@ -22,103 +22,92 @@ resetBtn.addEventListener('click', resetInputs);
 clearBtn.addEventListener('click', clearGame);
 infoBox.addEventListener('keyup', disableBtn);
 
+// FUNCTIONS (╯°□°）╯︵ ┻┻
 
-// FUNCTIONS
-
-
-  function setRange(event) {
- 
-    event.preventDefault();
-    var newMin = document.querySelector('.inp-min-range');
-    var newMax = document.querySelector('.inp-max-range');
-   
-
-
-    displayCurMin.innerText = newMin.value;
-    displayCurMax.innerText = newMax.value;
-    randomNumber(parseInt(newMin.value), parseInt(newMax.value));
-    newMin.value = "";
-    newMax.value = ""; 
-
-    
-  }
+function setRange(event) {
+  event.preventDefault();
+  var newMin = document.querySelector('.inp-min-range');
+  var newMax = document.querySelector('.inp-max-range');
+  displayCurMin.innerText = newMin.value;
+  displayCurMax.innerText = newMax.value;
+  randomNumber(parseInt(newMin.value), parseInt(newMax.value));
+  newMin.value = "";
+  newMax.value = "";   
+}
 
 function randomNumber(min, max) {
   console.log(min, max);
-  randoNum = Math.floor(Math.random()*(max-min))+ min;
-  // return rando;
+  randoNum = Math.floor(Math.random()*(max - min + 1)) + min;
   console.log(randoNum);
-  challengerAlert();
+  challengerAlert1();
+  challengerAlert2();
 }
 
-
-function challengerAlert() {
-    // console.log(number,'yes');
-    var checkGuessOne = parseInt(guessOne.value);
-    var checkGuessTwo = parseInt(guessTwo.value);
-    // console.log(checkGuessOne,'hi');
-    var alertChalOne = document.querySelector('.high-low-1');
-    var alertChalTwo = document.querySelector('high-low-2');
+function challengerAlert1() {
+  var checkGuessOne = parseInt(guessOne.value);
+  var alertChalOne = document.querySelector('.high-low-1');
   if (checkGuessOne === randoNum) {
-      alertChalOne.innerText = "Boom";
-      } else if (checkGuessOne < randoNum) {
-      alertChalOne.innerText = "Too low" 
-      } else { 
-        alertChalOne.innerText = "Too high"
-      }
-    }
+    alertChalOne.innerText = "boom!"
+  } else if (checkGuessOne < randoNum) {
+    alertChalOne.innerText = "that's too low!" 
+  } else { 
+    alertChalOne.innerText = "that's too high!"
+  }
+}
+function challengerAlert2() {
+  var checkGuessTwo = parseInt(guessTwo.value);
+  var alertChalTwo = document.querySelector('.high-low-2');
+  if (checkGuessTwo === randoNum) {
+    alertChalTwo.innerText = "boom!"
+  } else if (checkGuessTwo < randoNum) {
+    alertChalTwo.innerText = "that's too low!" 
+  } else { 
+    alertChalTwo.innerText = "that's too high!"
+  }
 
-  function submitGuess(event) {
-    
-    event.preventDefault();
-    var guessOneDisplay = document.querySelector('.guess-display-1');
-    var guessTwoDisplay = document.querySelector('.guess-display-2');
-    var lsNameChange1 = document.querySelector('.updated-name-1');
-    var lsNameChange2 = document.querySelector('.updated-name-2');
-
-
-    guessOneDisplay.innerText = parseInt(guessOne.value);
-    guessTwoDisplay.innerText = parseInt(guessTwo.value);
-    lsNameChange1.innerText = chalName1Input.value;
-    lsNameChange2.innerText = chalName2Input.value;
-
-    challengerAlert();
 }
 
+function submitGuess(event) {
+  var guessOneDisplay = document.querySelector('.guess-display-1');
+  var guessTwoDisplay = document.querySelector('.guess-display-2');
+  var lsNameChange1 = document.querySelector('.updated-name-1');
+  var lsNameChange2 = document.querySelector('.updated-name-2');
+  guessOneDisplay.innerText = parseInt(guessOne.value);
+  guessTwoDisplay.innerText = parseInt(guessTwo.value);
+  lsNameChange1.innerText = chalName1Input.value;
+  lsNameChange2.innerText = chalName2Input.value;
+  challengerAlert1();
+  challengerAlert2();
+}
+// error guess conditional
+// create a conditional for the value being within the set range
+// function errorGuess() {
+//   var lowRange = parseInt(guessOne.value);
+//   console.log(lowRange);
+//   var highRange = parseInt(guessTwo.value);
+//   console.log(highRange);
+// }
+// errorGuess();
 
 function resetInputs(event) {
-    inputsArray.forEach(function(element) {
-    element.value = "";
-      // element.placeholder = 'Enter';
-    }) 
-
+  inputsArray.forEach(function(element) {
+  element.value = "";
+  element.placeholder = 'Enter';
+  }) 
 }
 
 function clearGame(event) {
-     event.preventDefault();
-     displayCurMin.innerText = " ? ";
-     displayCurMax.innerText = " ? ";
-     resetInputs();
-     // disableBtn(); how does this work?
-
+  event.preventDefault();
+  displayCurMin.innerText = " ? ";
+  displayCurMax.innerText = " ? ";
+  resetInputs();
 }
 
-
-
-//Disable the clear button
-//conditional to determine if input is empty string
-//if empty string then disable
 function disableBtn(event) {
-         document.getElementById('disable-btn').disabled=false;
-         document.getElementById('disable-btn1').disabled=false;
-    }
+  document.getElementById('disable-btn').disabled=false;
+  document.getElementById('disable-btn1').disabled=false;
+}
 
-
-
-// random number results
-// for loop 
-// if equals then bam
-// for guess 1 if its greater than rando give string if less give other string
 
 
 
