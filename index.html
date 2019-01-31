@@ -6,37 +6,55 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <header class="flex-column">
     <h1 class="num-text">NUMBER<span class="guess-text">GUESSER</span></h1>
     <h3 class="uce-text">ULTIMATE CHALLENGER EDITION</h3>
   </header>
   <main>
     <section class="player-info">
-      <article class="set-range box-styling">
+      <article class="set-range">
         <h4>Set Range</h4>
         <form class="set-range-form">
-          <label class="min-range"> Min Range </label>
-          <input class="inp-min-range" type="number">
-          <label class="max-range"> Max Range </label>
-          <input class="inp-max-range" type="number">
-          <button class="update-btn">UPDATE</button>
+          <div class="box-container">
+            <div class="box">
+              <div class="flex-column">
+                <label class="min-range"> Min Range </label>
+                <input class="inp-min-range" type="number">
+            </div>
+            </div>
+            <div class="box">
+              <div class="flex-column">
+                <label class="max-range"> Max Range </label>
+                <input class="inp-max-range" type="number">
+              </div>
+            </div>
+              <button class="update-btn">UPDATE</button>
+          </div>
         </form>
       </article>
-      <article class="chal-info box-styling">
+      <article class="chal-info">
         <p>The Current Range is <span class="cur-min"> ? </span> to <span class="cur-max"> ? </span></p>
           <h4>Challenger 1</h4>
           <form class="chal-form">
-            <label class="chal-name">Name</label>
-            <input  class="chal-name-1 inputs" type="text">
-            <label class="chall-guess">Guess</label>
-            <input class="chal-guess-1 inputs" type="number">
+            <div class="flex-column">
+              <label class="chal-name">Name</label>
+              <input  class="chal-name-1 inputs" type="text">
+            </div>
+            <div class="flex-column">
+              <label class="chall-guess">Guess</label>
+              <input class="chal-guess-1 inputs" type="number">
+            </div>
           </form>
         <h4>Challenger 2</h4>
         <form class="chal-form">
-            <label class="chal-name">Name</label>
-            <input  class="chal-name-2 inputs" type="text">
-            <label class="chal-guess">Guess</label>
-            <input class="chal-guess-2 inputs" type="number">
+            <div class="flex-column">
+             <label class="chal-name">Name</label>
+             <input  class="chal-name-2 inputs" type="text">
+           </div>
+           <div class="flex-column">
+             <label class="chal-guess">Guess</label>
+             <input class="chal-guess-2 inputs" type="number">
+           </div>
         </form>
         <section class="game-btn">
           <button class="submit-guess-btn">SUBMIT GUESS</button>
@@ -44,10 +62,10 @@
           <button class="clear-game-btn" id="disable-btn" disabled="true">CLEAR GAME</button>
         </section>
       </article>   
-      <article class="latest-score box-styling">
+      <article class="latest-score">
       <h4>Latest Score</h4>
         <div class="guess-container">
-          <section class="chal-guess">
+          <section class="chal-guess ">
             <h5 class="updated-name-1">Challenger 1 Name</h5>
             <span class="cur-guess">current guess</span>
             <h1 class="guess-display-1">97</h1>
