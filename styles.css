@@ -12,20 +12,24 @@ body {
   display: flex;
 }
 header { 
+  width: 100%;
   background-color: #404041;
+  align-items: center;
  }
- main {
+main {
   display: inline-flex;
   width: 100%;
-
  }
- div {
-
+div {
  }
+
+.flex-center {
+  display:flex;
+  justify-content: center;
+}
 /*---------- Box Styling ------------*/
 .box-container {
   display: inline-flex;
-  width: 100%;
 
 }
 .flex-column {
@@ -40,23 +44,39 @@ header {
 
 section.game-btn {
   display: inline-flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%; 
 }
 .chal-form {
   display: inline-flex;
   width: 100%;
-
-
-
 }
-
 .chal-name-1,
 .chal-name-2 {
   width: 200px;
+}
+
+.guess-container { 
+  display: inline-flex;
+  justify-content: center;
+  width:100%;
 
 }
 /* -----------Right Side Styling ----------*/
 .leaderboard {
   width: 100%;
 }
+.win-card-mid {
+  width: 100;
+  justify-content:center;
+  display: flex;
+}
+
+.wc-styling {
+  width: 100%;
+  justify-content: center;
+  display: inline-flex;
+}
+
+
+
