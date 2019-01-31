@@ -54,6 +54,7 @@ function challengerAlert1() {
     alertChalOne.innerText = "that's too high!"
   }
 }
+
 function challengerAlert2() {
   var checkGuessTwo = parseInt(guessTwo.value);
   var alertChalTwo = document.querySelector('.high-low-2');
@@ -64,7 +65,6 @@ function challengerAlert2() {
   } else { 
     alertChalTwo.innerText = "that's too high!"
   }
-
 }
 
 function submitGuess(event) {
@@ -78,16 +78,21 @@ function submitGuess(event) {
   lsNameChange2.innerText = chalName2Input.value;
   challengerAlert1();
   challengerAlert2();
+  errorGuess();
 }
+
 // error guess conditional
 // create a conditional for the value being within the set range
-// function errorGuess() {
-//   var lowRange = parseInt(guessOne.value);
-//   console.log(lowRange);
-//   var highRange = parseInt(guessTwo.value);
-//   console.log(highRange);
-// }
-// errorGuess();
+function errorGuess() {
+  var lowRange = parseInt(guessOne.value);
+  var highRange = parseInt(guessTwo.value);
+  var guessOneDisplay = parseInt(guessOne.value);
+  var guessTwoDisplay = parseInt(guessTwo.value);
+  if (lowRange <= guessOneDisplay && guessOneDisplay <= highRange) {
+      console.log(' kayla')
+  }
+
+}
 
 function resetInputs(event) {
   inputsArray.forEach(function(element) {
