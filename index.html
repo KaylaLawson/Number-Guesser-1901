@@ -3,17 +3,17 @@
 <head>
   <title>Number Guesser</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 </head>
 <body>
   <header>
     <h1 class="num-text">NUMBER<span class="guess-text">GUESSER</span></h1>
-    <h3 class="uce-text">ULTIMATE CHALLENGER EDITION</h3>
+    <h3 class="uce-text"> ULTIMATE CHALLENGER EDITION</h3>
   </header>
   <main>
     <section class="player-info">
       <article class="set-range w-background">
-        <h4>Set Range</h4>
+        <h4 class="heading">Set Range</h4>
         <form class="set-range-form">
               <div class="flex-column">
                 <label class="min-range"> Min Range </label>
@@ -23,11 +23,13 @@
                 <label class="max-range"> Max Range </label>
                 <input class="inp-max-range" type="number">
               </div>  
-              <button class="update-btn flex-column w-background">UPDATE</button>
+            <div class="button-container">
+              <button class="update-btn">UPDATE</button>
+            </div>
         </form>
       </article>
       <article class="chal-info w-background">
-        <p>The Current Range is <span class="cur-min"> ? </span> to <span class="cur-max"> ? </span></p>
+        <p class = "range-text">The Current Range is <span class="cur-min"> ? </span> to <span class="cur-max"> ? </span></p>
           <h4>Challenger 1</h4>
           <form class="chal-form">
             <div class="flex-column">
@@ -63,13 +65,13 @@
             <h5 class="updated-name-1">Challenger 1 Name</h5>
             <span class="cur-guess">current guess</span>
             <h1 class="guess-display-1">#</h1>
-            <span class="high-low-1">guess</span>
+            <span class="high-low-1 hl-text">guess</span>
           </section>
           <section class="latest-score-sty">
              <h5 class="updated-name-2">Challenger 2 Name</h5>
-             <span class="cur-guess">current guess</ span>
+             <span class="cur-guess">current guess </span>
              <h1 class="guess-display-2">#</h1>
-             <span class="high-low-2">guess</span>
+             <span class="high-low-2 hl-text">guess</span>
          </section>
         </div>
       </article>  
@@ -81,7 +83,7 @@
          <span class="cur-guess">vs</span>
          <h5 class="card-name-2">CHALLENGER 2 NAME</h5>
         </article>
-        <article class="win-card-mid">
+        <article class="win-card-mid border-top-bot">
           <div class="flex-column">
            <h2>CHALLENGER NAME</h2>
            <h2 class="win flex-center">WINNER</h2>

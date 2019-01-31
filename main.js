@@ -24,6 +24,7 @@ infoBox.addEventListener('keyup', disableBtn);
 
 // FUNCTIONS (╯°□°）╯︵ ┻┻
 
+// if no value use 1 or 100 woop
 function setRange(event) {
   event.preventDefault();
   var newMin = document.querySelector('.inp-min-range');

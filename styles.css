@@ -2,15 +2,77 @@
   box-sizing: border-box;
   margin:0;
   padding: 0;
-  border: solid black 0.5px;
+/*  border: solid black 0.5px;*/
+  font-family:  'Open Sans', sans-serif;
 }
 /* ----------GLOBAL STYLING------------ */
 
 }
 body {
-  font-family:  'Open Sans', sans-serif;
   display: flex;
 }
+
+
+main {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+article {
+  margin: 15px;
+}
+button {
+border: 0;
+background: lightgrey;
+border-radius: 30px;
+height: 35px;
+width: 120px;
+font-size: 15px;
+font-weight: 900;
+color: white;
+margin-bottom: 20px;
+}
+
+
+/* -----------Text Styling ----------*/
+h1 {
+  font-size: 55px;
+  font-weight: 1000;
+  color: #DC528A;
+}
+h2 {
+  font-size: 30px;
+  font-weight:900;
+  color:#7F7F7F;
+
+}
+.guess-text {
+  font-weight: 100;
+}
+.uce-text {
+  color: white;
+  font-weight: 100;
+}
+h3 {
+  margin-bottom:30px;
+}
+h4 {
+  padding: 5px 0px 0px 10px;
+  color: #555559;
+  font-size: 20px;
+  font-weight: 900;
+}
+h5 {
+ color: #6E6E6E;
+ font-size: 16px;
+
+}
+label {
+  color: #727279;
+  font-weight: normal;
+}
+
 header { 
   width: 100%;
   background-color: #404041;
@@ -19,54 +81,72 @@ header {
   display: flex;
   margin: 0px;
  }
-main {
-  display: inline-flex;
-  width: 100%;
-  justify-content: space-around;
- }
-div {
- }
- article {
-  margin: 30px;
+ .cur-guess {
+  font-weight: 100;
+  font-size: 16px;
+  color: #AAAAAA;
  }
 
-.flex-center {
-  display:flex;
-  justify-content: center;
+.hl-text {
+  font-weight: 100;
+  font-size:20px;
+  color:#7F7F7F;
+
 }
+.range-text {
+  padding:5px 0 0 10px;
+  color: #555559;
+}
+
+
 /*---------- Box Styling ------------*/
 .box-container {
   display: inline-flex;
 
 }
 .flex-column {
-    flex-direction: column;
-    display: flex;
-    margin: 20px;
+  flex-direction: column;
+  display: flex;
+  margin: 5px 10px 20px 10px;
+  }
+.flex-center {
+  display:flex;
+  justify-content: center;
+}
+input {
+  height: 30px;
+  width: 156px;
 }
 
 /* -----------Left Side Styling -----------*/
 .player-info {
-  width: 90%;
+  width: 100%;
   background-color: #F5F6F8;
 }
 form.set-range-form {
   display:flex;
-  justify-content: space-around;
 }
+
+.button-container {
+  height: 100%;
+  display: flex;
+  margin: 23px 0px 0px 15px;
+}
+
 section.game-btn {
   display: inline-flex;
   justify-content: space-around;
-  width: 100%; 
+  width: 91%; 
 }
+
 .chal-form {
   display: inline-flex;
   width: 100%;
-  justify-content: space-around
 }
+
 .chal-name-1,
 .chal-name-2 {
-  width: 200px;
+  width: 240px;
 }
 
 .guess-container { 
@@ -77,11 +157,18 @@ section.game-btn {
 
 .latest-score-sty{
   margin: 10px;
+  text-align: center;
+
 }
 /* -----------Right Side Styling ----------*/
 .leaderboard {
-  width: 90%;
+  width: 100%;
   background-color:#D1D2D4;
+}
+.win-card {
+  background-color:white;
+  margin: 10px 30px 10px 30px;
+  border: grey 0.5px solid;
 }
 .win-card-mid {
   width: 100;
@@ -90,12 +177,16 @@ section.game-btn {
 }
 .w-background {
   background-color: white;
+  border: lightgrey 0.5px solid;
 }
 .wc-styling {
-  width: 100%;
-  justify-content: center;
+  width: 93%;
+  justify-content: space-around;
   display: inline-flex;
 }
-
+.border-top-bot{ 
+border-top: 1.5px #EAEAEA solid;
+border-bottom: 1.5px #EAEAEA solid;
+ }
 
 
