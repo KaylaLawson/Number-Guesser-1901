@@ -77,6 +77,8 @@ function clearGame(event) {
      displayCurMin.innerText = " ? ";
      displayCurMax.innerText = " ? ";
      resetInputs();
+     // disableBtn(); how does this work?
+
 }
 
 
@@ -85,11 +87,15 @@ function clearGame(event) {
 //conditional to determine if input is empty string
 //if empty string then disable
 function disableBtn(event) {
-      console.log(event);
          document.getElementById('disable-btn').disabled=false;
+         document.getElementById('disable-btn1').disabled=false;
     }
 
-  
+// random number results
+// for loop 
+// if equals then bam
+// for guess 1 if its greater than rando give string if less give other string
+
 
 
 
