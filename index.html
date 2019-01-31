@@ -6,33 +6,27 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
-  <header class="flex-column">
+  <header>
     <h1 class="num-text">NUMBER<span class="guess-text">GUESSER</span></h1>
     <h3 class="uce-text">ULTIMATE CHALLENGER EDITION</h3>
   </header>
   <main>
     <section class="player-info">
-      <article class="set-range">
+      <article class="set-range w-background">
         <h4>Set Range</h4>
         <form class="set-range-form">
-          <div class="box-container">
-            <div class="box">
               <div class="flex-column">
                 <label class="min-range"> Min Range </label>
                 <input class="inp-min-range" type="number">
             </div>
-            </div>
-            <div class="box">
               <div class="flex-column">
                 <label class="max-range"> Max Range </label>
                 <input class="inp-max-range" type="number">
-              </div>
-            </div>
-              <button class="update-btn">UPDATE</button>
-          </div>
+              </div>  
+              <button class="update-btn flex-column w-background">UPDATE</button>
         </form>
       </article>
-      <article class="chal-info">
+      <article class="chal-info w-background">
         <p>The Current Range is <span class="cur-min"> ? </span> to <span class="cur-max"> ? </span></p>
           <h4>Challenger 1</h4>
           <form class="chal-form">
@@ -62,16 +56,16 @@
           <button class="clear-game-btn" id="disable-btn" disabled="true">CLEAR GAME</button>
         </section>
       </article>   
-      <article class="latest-score">
+      <article class="latest-score w-background">
       <h4>Latest Score</h4>
         <div class="guess-container">
-          <section class="chal-guess ">
+          <section class="latest-score-sty">
             <h5 class="updated-name-1">Challenger 1 Name</h5>
             <span class="cur-guess">current guess</span>
             <h1 class="guess-display-1">#</h1>
             <span class="high-low-1">guess</span>
           </section>
-          <section class="chal-guess">
+          <section class="latest-score-sty">
              <h5 class="updated-name-2">Challenger 2 Name</h5>
              <span class="cur-guess">current guess</ span>
              <h1 class="guess-display-2">#</h1>

@@ -1,8 +1,8 @@
 *:before, *:after, * {
   box-sizing: border-box;
-  margin: 0;
+  margin:0;
   padding: 0;
-  border: solid darkgreen 1px;
+  border: solid black 0.5px;
 }
 /* ----------GLOBAL STYLING------------ */
 
@@ -15,12 +15,19 @@ header {
   width: 100%;
   background-color: #404041;
   align-items: center;
+  flex-direction: column;
+  display: flex;
+  margin: 0px;
  }
 main {
   display: inline-flex;
   width: 100%;
+  justify-content: space-around;
  }
 div {
+ }
+ article {
+  margin: 30px;
  }
 
 .flex-center {
@@ -33,23 +40,29 @@ div {
 
 }
 .flex-column {
-  flex-direction: column;
-  display: flex;
+    flex-direction: column;
+    display: flex;
+    margin: 20px;
 }
 
 /* -----------Left Side Styling -----------*/
 .player-info {
-  width: 100%;
+  width: 90%;
+  background-color: #F5F6F8;
 }
-
+form.set-range-form {
+  display:flex;
+  justify-content: space-around;
+}
 section.game-btn {
   display: inline-flex;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%; 
 }
 .chal-form {
   display: inline-flex;
   width: 100%;
+  justify-content: space-around
 }
 .chal-name-1,
 .chal-name-2 {
@@ -58,20 +71,26 @@ section.game-btn {
 
 .guess-container { 
   display: inline-flex;
-  justify-content: center;
+  justify-content: space-around;
   width:100%;
+}
 
+.latest-score-sty{
+  margin: 10px;
 }
 /* -----------Right Side Styling ----------*/
 .leaderboard {
-  width: 100%;
+  width: 90%;
+  background-color:#D1D2D4;
 }
 .win-card-mid {
   width: 100;
   justify-content:center;
   display: flex;
 }
-
+.w-background {
+  background-color: white;
+}
 .wc-styling {
   width: 100%;
   justify-content: center;
