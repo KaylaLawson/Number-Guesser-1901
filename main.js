@@ -1,4 +1,4 @@
-// GLOBAL VARIABLES
+// GLOBAL VARIABLES  (ⓛﻌⓛ*)
 
 var updateBtn = document.querySelector('.update-btn');
 var submitBtn = document.querySelector('.submit-guess-btn');
@@ -13,8 +13,11 @@ var infoBox = document.querySelector('.chal-info');
 var guessOne = document.querySelector('.chal-guess-1');
 var guessTwo = document.querySelector('.chal-guess-2');
 var randoNum;
+var newMin = document.querySelector('.inp-min-range');
+var newMax = document.querySelector('.inp-max-range');
 
-// EVENT LISTENERS
+
+// EVENT LISTENERS ʕ•ᴥ•ʔ
 
 updateBtn.addEventListener('click', setRange);
 submitBtn.addEventListener('click', submitGuess);
@@ -22,103 +25,119 @@ resetBtn.addEventListener('click', resetInputs);
 clearBtn.addEventListener('click', clearGame);
 infoBox.addEventListener('keyup', disableBtn);
 
+// FUNCTIONS (╯°□°）╯︵ ┻┻
 
-// FUNCTIONS
-
-
-  function setRange(event) {
- 
-    event.preventDefault();
-    var newMin = document.querySelector('.inp-min-range');
-    var newMax = document.querySelector('.inp-max-range');
-   
-
-
-    displayCurMin.innerText = newMin.value;
-    displayCurMax.innerText = newMax.value;
-    randomNumber(parseInt(newMin.value), parseInt(newMax.value));
-    newMin.value = "";
-    newMax.value = ""; 
-
-    
-  }
+// if no value use 1 or 100 woop
+function setRange(event) {
+  event.preventDefault();
+  displayCurMin.innerText = newMin.value;
+  displayCurMax.innerText = newMax.value;
+  randomNumber(parseInt(newMin.value), parseInt(newMax.value));
+  newMin.value = "";
+  newMax.value = "";   
+}
 
 function randomNumber(min, max) {
   console.log(min, max);
-  randoNum = Math.floor(Math.random()*(max-min))+ min;
-  // return rando;
+  randoNum = Math.floor(Math.random()*(max - min + 1)) + min;
   console.log(randoNum);
-  challengerAlert();
 }
 
-
-function challengerAlert() {
-    // console.log(number,'yes');
-    var checkGuessOne = parseInt(guessOne.value);
-    var checkGuessTwo = parseInt(guessTwo.value);
-    // console.log(checkGuessOne,'hi');
-    var alertChalOne = document.querySelector('.high-low-1');
-    var alertChalTwo = document.querySelector('high-low-2');
+function challengerAlert1() {
+  var checkGuessOne = parseInt(guessOne.value);
+  var alertChalOne = document.querySelector('.high-low-1');
   if (checkGuessOne === randoNum) {
-      alertChalOne.innerText = "Boom";
-      } else if (checkGuessOne < randoNum) {
-      alertChalOne.innerText = "Too low" 
-      } else { 
-        alertChalOne.innerText = "Too high"
-      }
-    }
-
-  function submitGuess(event) {
-    
-    event.preventDefault();
-    var guessOneDisplay = document.querySelector('.guess-display-1');
-    var guessTwoDisplay = document.querySelector('.guess-display-2');
-    var lsNameChange1 = document.querySelector('.updated-name-1');
-    var lsNameChange2 = document.querySelector('.updated-name-2');
-
-
-    guessOneDisplay.innerText = parseInt(guessOne.value);
-    guessTwoDisplay.innerText = parseInt(guessTwo.value);
-    lsNameChange1.innerText = chalName1Input.value;
-    lsNameChange2.innerText = chalName2Input.value;
-
-    challengerAlert();
+    alertChalOne.innerText = "boom!"
+  } else if (checkGuessOne < randoNum) {
+    alertChalOne.innerText = "that's too low!" 
+  } else { 
+    alertChalOne.innerText = "that's too high!"
+  }
 }
 
+function challengerAlert2() {
+  var checkGuessTwo = parseInt(guessTwo.value);
+  var alertChalTwo = document.querySelector('.high-low-2');
+  if (checkGuessTwo === randoNum) {
+    alertChalTwo.innerText = "boom!"
+  } else if (checkGuessTwo < randoNum) {
+    alertChalTwo.innerText = "that's too low!" 
+  } else { 
+    alertChalTwo.innerText = "that's too high!"
+  }
+}
+
+function submitGuess(event) {
+  var guessOneDisplay = document.querySelector('.guess-display-1');
+  var guessTwoDisplay = document.querySelector('.guess-display-2');
+  var lsNameChange1 = document.querySelector('.updated-name-1');
+  var lsNameChange2 = document.querySelector('.updated-name-2');
+  guessOneDisplay.innerText = parseInt(guessOne.value);
+  guessTwoDisplay.innerText = parseInt(guessTwo.value);
+  lsNameChange1.innerText = chalName1Input.value;
+  lsNameChange2.innerText = chalName2Input.value;
+  errorGuess1();
+  errorGuess2();
+  challengerAlert1();
+  challengerAlert2();
+}
+
+// guest field only takes val between min max
+// var min, var max, var guess1, var guess2 (values)
+// if statement for comparison 
+// one value at a time in separate functions
+function errorGuess1() {
+
+  var minRangeVar = document.querySelector('.cur-min');
+  var lowerRange = parseInt(minRangeVar.innerText);
+  var maxRangeVar = document.querySelector('.cur-max');
+  var higherRange = parseInt(maxRangeVar.innerText);
+  console.log(lowerRange);
+  var guessOneDisplay = parseInt(guessOne.value);
+  var guessTwoDisplay = parseInt(guessTwo.value);
+  if (lowerRange > guessOneDisplay) {
+      alert("Invalid");
+  } else if (higherRange < guessOneDisplay) {
+      alert("Invalid");
+  }
+
+}
+function errorGuess2() {
+
+  var minRangeVar = document.querySelector('.cur-min');
+  var lowerRange = parseInt(minRangeVar.innerText);
+  var maxRangeVar = document.querySelector('.cur-max');
+  var higherRange = parseInt(maxRangeVar.innerText);
+  console.log(lowerRange);
+  var guessOneDisplay = parseInt(guessOne.value);
+  var guessTwoDisplay = parseInt(guessTwo.value);
+  if (lowerRange > guessTwoDisplay) {
+      alert("Invalid");
+  } else if (higherRange < guessTwoDisplay) {
+      alert("Invalid");
+  }
+
+}
 
 function resetInputs(event) {
-    inputsArray.forEach(function(element) {
-    element.value = "";
-      // element.placeholder = 'Enter';
-    }) 
-
+  inputsArray.forEach(function(element) {
+  element.value = "";
+  element.placeholder = 'Enter';
+  }) 
 }
 
 function clearGame(event) {
-     event.preventDefault();
-     displayCurMin.innerText = " ? ";
-     displayCurMax.innerText = " ? ";
-     resetInputs();
-     // disableBtn(); how does this work?
-
+  event.preventDefault();
+  displayCurMin.innerText = " ? ";
+  displayCurMax.innerText = " ? ";
+  resetInputs();
 }
 
-
-
-//Disable the clear button
-//conditional to determine if input is empty string
-//if empty string then disable
 function disableBtn(event) {
-         document.getElementById('disable-btn').disabled=false;
-         document.getElementById('disable-btn1').disabled=false;
-    }
+  document.getElementById('disable-btn').disabled=false;
+  document.getElementById('disable-btn1').disabled=false;
+}
 
-
-
-// random number results
-// for loop 
-// if equals then bam
-// for guess 1 if its greater than rando give string if less give other string
 
 
 

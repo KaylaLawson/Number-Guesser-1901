@@ -3,7 +3,7 @@
 <head>
   <title>Number Guesser</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -12,31 +12,45 @@
   </header>
   <main>
     <section class="player-info">
-      <article class="set-range box-styling">
-        <h4>Set Range</h4>
+      <article class="set-range w-background">
+        <h4 class="heading">Set Range</h4>
         <form class="set-range-form">
-          <label class="min-range"> Min Range </label>
-          <input class="inp-min-range" type="number">
-          <label class="max-range"> Max Range </label>
-          <input class="inp-max-range" type="number">
-          <button class="update-btn">UPDATE</button>
+              <div class="flex-column">
+                <label class="min-range"> Min Range </label>
+                <input class="inp-min-range" type="number">
+            </div>
+              <div class="flex-column">
+                <label class="max-range"> Max Range </label>
+                <input class="inp-max-range" type="number">
+              </div>  
+            <div class="button-container">
+              <button class="update-btn">UPDATE</button>
+            </div>
         </form>
       </article>
-      <article class="chal-info box-styling">
-        <p>The Current Range is <span class="cur-min"> ? </span> to <span class="cur-max"> ? </span></p>
+      <article class="chal-info w-background">
+        <p class = "range-text">The Current Range is <span class="cur-min"> ? </span> to <span class="cur-max"> ? </span></p>
           <h4>Challenger 1</h4>
           <form class="chal-form">
-            <label class="chal-name">Name</label>
-            <input  class="chal-name-1 inputs" type="text">
-            <label class="chall-guess">Guess</label>
-            <input class="chal-guess-1 inputs" type="number">
+            <div class="flex-column">
+              <label class="chal-name">Name</label>
+              <input  class="chal-name-1 inputs" type="text">
+            </div>
+            <div class="flex-column">
+              <label class="chall-guess">Guess</label>
+              <input class="chal-guess-1 inputs" type="number">
+            </div>
           </form>
         <h4>Challenger 2</h4>
         <form class="chal-form">
-            <label class="chal-name">Name</label>
-            <input  class="chal-name-2 inputs" type="text">
-            <label class="chal-guess">Guess</label>
-            <input class="chal-guess-2 inputs" type="number">
+            <div class="flex-column">
+             <label class="chal-name">Name</label>
+             <input  class="chal-name-2 inputs" type="text">
+           </div>
+           <div class="flex-column">
+             <label class="chal-guess">Guess</label>
+             <input class="chal-guess-2 inputs" type="number">
+           </div>
         </form>
         <section class="game-btn">
           <button class="submit-guess-btn">SUBMIT GUESS</button>
@@ -44,36 +58,38 @@
           <button class="clear-game-btn" id="disable-btn" disabled="true">CLEAR GAME</button>
         </section>
       </article>   
-      <article class="latest-score box-styling">
+      <article class="latest-score w-background">
       <h4>Latest Score</h4>
         <div class="guess-container">
-          <section class="chal-guess">
+          <section class="latest-score-sty">
             <h5 class="updated-name-1">Challenger 1 Name</h5>
             <span class="cur-guess">current guess</span>
-            <h1 class="guess-display-1">97</h1>
-            <span class="high-low-1">that's too high</span>
+            <h1 class="guess-display-1">#</h1>
+            <span class="high-low-1 hl-text">guess</span>
           </section>
-          <section class="chal-guess">
+          <section class="latest-score-sty">
              <h5 class="updated-name-2">Challenger 2 Name</h5>
-             <span class="cur-guess">current guess</ span>
-             <h1 class="guess-display-2">3</h1>
-             <span class="high-low-2">that's too low</span>
+             <span class="cur-guess">current guess </span>
+             <h1 class="guess-display-2">#</h1>
+             <span class="high-low-2 hl-text">guess</span>
          </section>
         </div>
       </article>  
     </section>
     <section class="leaderboard">
-      <div class="box-styling">
-        <article class="win-card-top">
+      <div class="win-card">
+        <article class="win-card-top wc-styling">
           <h5 class="card-name-1">CHALLENGER 1 NAME</h5>
          <span class="cur-guess">vs</span>
          <h5 class="card-name-2">CHALLENGER 2 NAME</h5>
         </article>
-        <article class="win-card-mid">
-         <h2>CHALLENGER NAME</h2>
-         <h2 class="win">WINNER</h2>
+        <article class="win-card-mid border-top-bot">
+          <div class="flex-column">
+           <h2>CHALLENGER NAME</h2>
+           <h2 class="win flex-center">WINNER</h2>
+          </div>
         </article>
-        <article class="win-card-bot">
+        <article class="win-card-bot wc-styling">
          <p><span class="num-of-guesses">47</span> GUESSES</p>
           <p><span class="num-of-minutes">1.35</span> MINUTES</p>
           <button class="del-btn">DELETE</button>
