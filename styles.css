@@ -23,15 +23,15 @@ article {
   margin: 15px;
 }
 button {
-border: 0;
 background: lightgrey;
 border-radius: 30px;
-height: 35px;
-width: 120px;
+border: 0;
+color: white;
 font-size: 15px;
 font-weight: 900;
-color: white;
+height: 35px;
 margin-bottom: 20px;
+width: 120px;
 }
 
 

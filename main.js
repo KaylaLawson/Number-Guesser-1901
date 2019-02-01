@@ -32,9 +32,16 @@ function setRange(event) {
   event.preventDefault();
   displayCurMin.innerText = newMin.value;
   displayCurMax.innerText = newMax.value;
-  randomNumber(parseInt(newMin.value), parseInt(newMax.value));
-  newMin.value = "";
-  newMax.value = "";   
+  if (newMin.value === "" && newMax.value === "") {
+      newMin.placeholder = 'Invalid';
+      newMax.placeholder = 'Invalid';
+  } else {
+    randomNumber(parseInt(newMin.value), parseInt(newMax.value));
+    newMin.value ="";
+    newMin.placeholder = "";
+    newMax.value ="";
+    newMax.placeholder = "";
+  }
 }
 
 function randomNumber(min, max) {
@@ -50,11 +57,13 @@ function challengerAlert1() {
     alertChalOne.innerText = "boom!"
   } else if (checkGuessOne < randoNum) {
     alertChalOne.innerText = "that's too low!" 
-  } else { 
+  } else if (checkGuessOne > randoNum) { 
     alertChalOne.innerText = "that's too high!"
+  } else{
+    alertChalOne.innerText = "guess";
   }
-}
 
+}
 function challengerAlert2() {
   var checkGuessTwo = parseInt(guessTwo.value);
   var alertChalTwo = document.querySelector('.high-low-2');
@@ -62,9 +71,12 @@ function challengerAlert2() {
     alertChalTwo.innerText = "boom!"
   } else if (checkGuessTwo < randoNum) {
     alertChalTwo.innerText = "that's too low!" 
-  } else { 
+  } else if (checkGuessTwo > randoNum) { 
     alertChalTwo.innerText = "that's too high!"
+  } else{
+    alertChalTwo.innerText = "guess";
   }
+
 }
 
 function submitGuess(event) {
@@ -76,53 +88,67 @@ function submitGuess(event) {
   guessTwoDisplay.innerText = parseInt(guessTwo.value);
   lsNameChange1.innerText = chalName1Input.value;
   lsNameChange2.innerText = chalName2Input.value;
+  resetError();
   errorGuess1();
   errorGuess2();
   challengerAlert1();
   challengerAlert2();
 }
 
-// guest field only takes val between min max
-// var min, var max, var guess1, var guess2 (values)
-// if statement for comparison 
-// one value at a time in separate functions
-function errorGuess1() {
 
+function errorGuess1() {
   var minRangeVar = document.querySelector('.cur-min');
   var lowerRange = parseInt(minRangeVar.innerText);
   var maxRangeVar = document.querySelector('.cur-max');
   var higherRange = parseInt(maxRangeVar.innerText);
-  console.log(lowerRange);
   var guessOneDisplay = parseInt(guessOne.value);
   var guessTwoDisplay = parseInt(guessTwo.value);
   if (lowerRange > guessOneDisplay) {
-      alert("Invalid");
-  } else if (higherRange < guessOneDisplay) {
-      alert("Invalid");
-  }
+    guessOne.value = "";
+    guessOne.placeholder='Invalid';
 
+  } else if (higherRange < guessOneDisplay) {
+    guessOne.value = "";
+    guessOne.placeholder='Invalid';
+  } 
 }
+
+
+
 function errorGuess2() {
 
   var minRangeVar = document.querySelector('.cur-min');
   var lowerRange = parseInt(minRangeVar.innerText);
   var maxRangeVar = document.querySelector('.cur-max');
   var higherRange = parseInt(maxRangeVar.innerText);
-  console.log(lowerRange);
   var guessOneDisplay = parseInt(guessOne.value);
   var guessTwoDisplay = parseInt(guessTwo.value);
   if (lowerRange > guessTwoDisplay) {
-      alert("Invalid");
+    guessTwo.value = "";
+    guessTwo.placeholder='Invalid';
   } else if (higherRange < guessTwoDisplay) {
-      alert("Invalid");
+    guessTwo.value = "";
+    guessTwo.placeholder='Invalid';
   }
-
 }
+
 
 function resetInputs(event) {
   inputsArray.forEach(function(element) {
-  element.value = "";
-  element.placeholder = 'Enter';
+  if (element.value === "") {
+      element.placeholder = 'Not a valid entry';
+  } else {
+      element.value = "";
+      element.placeholder = 'Enter';
+     }
+  }) 
+}
+
+function resetError(event) {
+  inputsArray.forEach(function(element) {
+  if (element.value === "") {
+      element.placeholder = 'Not a valid entry';
+  }
   }) 
 }
 
@@ -137,13 +163,3 @@ function disableBtn(event) {
   document.getElementById('disable-btn').disabled=false;
   document.getElementById('disable-btn1').disabled=false;
 }
-
-
-
-
-
-
-
-
-
-
