@@ -13,6 +13,9 @@ var infoBox = document.querySelector('.chal-info');
 var guessOne = document.querySelector('.chal-guess-1');
 var guessTwo = document.querySelector('.chal-guess-2');
 var randoNum;
+var newMin = document.querySelector('.inp-min-range');
+var newMax = document.querySelector('.inp-max-range');
+
 
 // EVENT LISTENERS ʕ•ᴥ•ʔ
 
@@ -27,8 +30,6 @@ infoBox.addEventListener('keyup', disableBtn);
 // if no value use 1 or 100 woop
 function setRange(event) {
   event.preventDefault();
-  var newMin = document.querySelector('.inp-min-range');
-  var newMax = document.querySelector('.inp-max-range');
   displayCurMin.innerText = newMin.value;
   displayCurMax.innerText = newMax.value;
   randomNumber(parseInt(newMin.value), parseInt(newMax.value));
@@ -40,8 +41,6 @@ function randomNumber(min, max) {
   console.log(min, max);
   randoNum = Math.floor(Math.random()*(max - min + 1)) + min;
   console.log(randoNum);
-  challengerAlert1();
-  challengerAlert2();
 }
 
 function challengerAlert1() {
@@ -77,20 +76,45 @@ function submitGuess(event) {
   guessTwoDisplay.innerText = parseInt(guessTwo.value);
   lsNameChange1.innerText = chalName1Input.value;
   lsNameChange2.innerText = chalName2Input.value;
+  errorGuess1();
+  errorGuess2();
   challengerAlert1();
   challengerAlert2();
-  errorGuess();
 }
 
-// error guess conditional
-// create a conditional for the value being within the set range
-function errorGuess() {
-  var lowRange = parseInt(guessOne.value);
-  var highRange = parseInt(guessTwo.value);
+// guest field only takes val between min max
+// var min, var max, var guess1, var guess2 (values)
+// if statement for comparison 
+// one value at a time in separate functions
+function errorGuess1() {
+
+  var minRangeVar = document.querySelector('.cur-min');
+  var lowerRange = parseInt(minRangeVar.innerText);
+  var maxRangeVar = document.querySelector('.cur-max');
+  var higherRange = parseInt(maxRangeVar.innerText);
+  console.log(lowerRange);
   var guessOneDisplay = parseInt(guessOne.value);
   var guessTwoDisplay = parseInt(guessTwo.value);
-  if (lowRange <= guessOneDisplay && guessOneDisplay <= highRange) {
-      console.log(' kayla')
+  if (lowerRange > guessOneDisplay) {
+      alert("Invalid");
+  } else if (higherRange < guessOneDisplay) {
+      alert("Invalid");
+  }
+
+}
+function errorGuess2() {
+
+  var minRangeVar = document.querySelector('.cur-min');
+  var lowerRange = parseInt(minRangeVar.innerText);
+  var maxRangeVar = document.querySelector('.cur-max');
+  var higherRange = parseInt(maxRangeVar.innerText);
+  console.log(lowerRange);
+  var guessOneDisplay = parseInt(guessOne.value);
+  var guessTwoDisplay = parseInt(guessTwo.value);
+  if (lowerRange > guessTwoDisplay) {
+      alert("Invalid");
+  } else if (higherRange < guessTwoDisplay) {
+      alert("Invalid");
   }
 
 }
