@@ -8,7 +8,9 @@
 <body>
   <header>
     <h1 class="num-text">NUMBER<span class="guess-text">GUESSER</span></h1>
-    <h3 class="uce-text">ULTIMATE CHALLENGER EDITION</h3>
+    <div class = "uce-container">
+      <h3 class="uce-text"><hr class="one">ULTIMATE CHALLENGER EDITION<hr class="two"></h3>
+    </div>
   </header>
   <main>
     <section class="player-info">
@@ -54,8 +56,8 @@
         </form>
         <section class="game-btn">
           <button class="submit-guess-btn">SUBMIT GUESS</button>
-          <button class="reset-game-btn" id="disable-btn1" disabled="true">RESET GAME</button>
-          <button class="clear-game-btn" id="disable-btn" disabled="true">CLEAR GAME</button>
+          <button class="reset-game-btn" id="disable-btn1" disabled>RESET GAME</button>
+          <button class="clear-game-btn" id="disable-btn" disabled>CLEAR GAME</button>
         </section>
       </article>   
       <article class="latest-score w-background">
@@ -97,6 +99,8 @@
     </div>
     </section>
   </main>
+  <div id="unicorn-jail">
+  </div>
 </body>
 <script type="text/javascript" src="main.js"></script>
 </html>

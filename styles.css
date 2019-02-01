@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin:0;
   padding: 0;
-/*  border: solid black 0.5px;*/
+  /*border: solid black 0.5px;*/
   font-family:  'Open Sans', sans-serif;
 }
 /* ----------GLOBAL STYLING------------ */
@@ -97,7 +97,18 @@ header {
   padding:5px 0 0 10px;
   color: #555559;
 }
+.uce-container {
+  display: inline-flex;
+  }
+hr {
+  width: 300px;
+}
+hr.one {
 
+}
+hr.two {
+
+}
 
 /*---------- Box Styling ------------*/
 .box-container {
@@ -189,4 +200,36 @@ border-top: 1.5px #EAEAEA solid;
 border-bottom: 1.5px #EAEAEA solid;
  }
 
+/* ------------ Unicorn-------- */
+
+.unicorn-jail {
+
+}
+.unicorn {
+  width: 300px;
+  height: 300px;
+  background-image: url(https://i.pinimg.com/originals/f9/4a/6a/f94a6a51eb011f5e3658edc26beab86d.png);
+  border: 1px black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-top: -500px;
+  margin-left: -300px;
+  animation-name: Unicorn-Movement;
+  animation: Unicorn-Movement 8s 1s 1;
+}
+
+@keyframes Unicorn-Movement {
+
+  0% {
+    margin-top: -500px;
+    margin-left: -300px;
+  }
+
+  100% {
+    margin-top: -500px;
+    margin-left: 1400px;
+  }
+
+}
 

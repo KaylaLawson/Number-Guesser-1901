@@ -54,7 +54,10 @@ function challengerAlert1() {
   var checkGuessOne = parseInt(guessOne.value);
   var alertChalOne = document.querySelector('.high-low-1');
   if (checkGuessOne === randoNum) {
-    alertChalOne.innerText = "boom!"
+    alertChalOne.innerText = "BOOM!"
+    var element = document.getElementById("unicorn-jail")
+    element.classList.add("unicorn")
+    element.classList.remove("unicorn")
   } else if (checkGuessOne < randoNum) {
     alertChalOne.innerText = "that's too low!" 
   } else if (checkGuessOne > randoNum) { 
@@ -68,7 +71,9 @@ function challengerAlert2() {
   var checkGuessTwo = parseInt(guessTwo.value);
   var alertChalTwo = document.querySelector('.high-low-2');
   if (checkGuessTwo === randoNum) {
-    alertChalTwo.innerText = "boom!"
+    alertChalTwo.innerText = "BOOM!"
+    var element = document.getElementById("unicorn-jail")
+    element.classList.add("unicorn")
   } else if (checkGuessTwo < randoNum) {
     alertChalTwo.innerText = "that's too low!" 
   } else if (checkGuessTwo > randoNum) { 
