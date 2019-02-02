@@ -57,7 +57,6 @@ function challengerAlert1() {
     alertChalOne.innerText = "BOOM!"
     var element = document.getElementById("unicorn-jail")
     element.classList.add("unicorn")
-    element.classList.remove("unicorn")
   } else if (checkGuessOne < randoNum) {
     alertChalOne.innerText = "that's too low!" 
   } else if (checkGuessOne > randoNum) { 
