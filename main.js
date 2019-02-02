@@ -22,18 +22,29 @@ function appendCard() {
   }
 }
 
-function generateCard() {
-  var cardLocal = document.querySelector('.leaderboard')
+function generateCard(cardName1, cardName2, winner) {
+  var cardName1 = chalName1Input.value;
+  var cardName2 = chalName2Input.value;
+  var winner;
+  var alertChalOne = document.querySelector('.high-low-1').innerText;
+  var cardLocal = document.querySelector('.leaderboard');
+  if (alertChalOne === 'BOOM!') {
+    winner = cardName1;  
+  } else {
+    winner = cardName2;
+  }
+
+
   var card = `
   <div class="win-card">
         <article class="win-card-top wc-styling">
-          <h5 class="card-name-1">CHALLENGER 1 NAME</h5>
+          <h5 class="card-name-1">${cardName1}</h5>
          <span class="cur-guess">vs</span>
-         <h5 class="card-name-2">CHALLENGER 2 NAME</h5>
+         <h5 class="card-name-2">${cardName2}</h5>
         </article>
         <article class="win-card-mid border-top-bot">
           <div class="flex-column">
-           <h2>CHALLENGER NAME</h2>
+           <h2>${winner}</h2>
            <h2 class="win flex-center">WINNER</h2>
           </div>
         </article>
@@ -134,9 +145,9 @@ function submitGuess(event) {
   resetError();
   errorGuess1();
   errorGuess2();
-  appendCard();
   challengerAlert1();
   challengerAlert2();
+  appendCard();
 }
 
 function errorGuess1() {
