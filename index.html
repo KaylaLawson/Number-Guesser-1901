@@ -8,7 +8,9 @@
 <body>
   <header>
     <h1 class="num-text">NUMBER<span class="guess-text">GUESSER</span></h1>
-    <h3 class="uce-text">ULTIMATE CHALLENGER EDITION</h3>
+    <div class = "uce-container">
+      <span class="line"></span><h3 class="uce-text">ULTIMATE CHALLENGER EDITION</h3><span class="line"></span>
+    </div>
   </header>
   <main>
     <section class="player-info">
@@ -34,11 +36,11 @@
           <form class="chal-form">
             <div class="flex-column">
               <label class="chal-name">Name</label>
-              <input  class="chal-name-1 inputs" type="text">
+              <input  class="chal-name-1 guessErr inputs" type="text">
             </div>
             <div class="flex-column">
               <label class="chall-guess">Guess</label>
-              <input class="chal-guess-1 inputs" type="number">
+              <input class="chal-guess-1 guessErr inputs" type="number">
             </div>
           </form>
         <h4>Challenger 2</h4>
@@ -54,8 +56,8 @@
         </form>
         <section class="game-btn">
           <button class="submit-guess-btn">SUBMIT GUESS</button>
-          <button class="reset-game-btn" id="disable-btn1" disabled="true">RESET GAME</button>
-          <button class="clear-game-btn" id="disable-btn" disabled="true">CLEAR GAME</button>
+          <button class="reset-game-btn" id="disable-btn1" disabled>RESET GAME</button>
+          <button class="clear-game-btn" id="disable-btn" disabled>CLEAR GAME</button>
         </section>
       </article>   
       <article class="latest-score w-background">
@@ -90,13 +92,15 @@
           </div>
         </article>
         <article class="win-card-bot wc-styling">
-         <p><span class="num-of-guesses">47</span> GUESSES</p>
-          <p><span class="num-of-minutes">1.35</span> MINUTES</p>
-          <button class="del-btn">DELETE</button>
+         <h5><span class="num-of-guesses">47</span> GUESSES</h5>
+          <h5><span class="num-of-minutes">1.35</span> MINUTES</h5>
+          <button class="del-btn">&times;</button>
       </article>
     </div>
     </section>
   </main>
+  <div id="unicorn-jail">
+  </div>
 </body>
 <script type="text/javascript" src="main.js"></script>
 </html>

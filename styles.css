@@ -23,17 +23,31 @@ article {
   margin: 15px;
 }
 button {
-border: 0;
 background: lightgrey;
 border-radius: 30px;
-height: 35px;
-width: 120px;
+border: none;
+color: white;
 font-size: 15px;
 font-weight: 900;
-color: white;
+height: 35px;
 margin-bottom: 20px;
-}
+width: 120px;
+outline: none;
 
+}
+button:hover {
+  background-color: #BCBCBC;
+  border: #595959 solid 3px;
+}
+.del-btn {
+  width: 34px;
+  font-size: 24px;
+  border-radius: 50%;
+  margin-top: -6px;
+  background-color: #8C8C8C;
+  font-weight: 300;
+
+}
 
 /* -----------Text Styling ----------*/
 h1 {
@@ -53,6 +67,8 @@ h2 {
 .uce-text {
   color: white;
   font-weight: 100;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 h3 {
   margin-bottom:30px;
@@ -97,7 +113,19 @@ header {
   padding:5px 0 0 10px;
   color: #555559;
 }
+.uce-container {
+  display: inline-flex;
+  padding:5px;
+  }
+hr {
+  width: 300px;
+}
+.line {
+  width: 85px;
+  border-top: 2px white solid;
+  margin-top: 12px;
 
+}
 
 /*---------- Box Styling ------------*/
 .box-container {
@@ -116,6 +144,7 @@ header {
 input {
   height: 30px;
   width: 156px;
+
 }
 
 /* -----------Left Side Styling -----------*/
@@ -174,6 +203,10 @@ section.game-btn {
   width: 100;
   justify-content:center;
   display: flex;
+  margin: 0px;
+}
+.win-card-bot {
+  margin-bottom: -10px;
 }
 .w-background {
   background-color: white;
@@ -185,8 +218,44 @@ section.game-btn {
   display: inline-flex;
 }
 .border-top-bot{ 
-border-top: 1.5px #EAEAEA solid;
-border-bottom: 1.5px #EAEAEA solid;
+border-top: 1.5px lightgrey solid;
+border-bottom: 1.5px lightgrey solid;
  }
 
+/* ------------ Unicorn-------- */
+
+.unicorn-jail {
+
+}
+.unicorn {
+  width: 300px;
+  height: 300px;
+  background-image: url(https://i.pinimg.com/originals/f9/4a/6a/f94a6a51eb011f5e3658edc26beab86d.png);
+  border: 1px black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-top: -500px;
+  margin-left: -300px;
+  animation-name: Unicorn-Movement;
+  animation: Unicorn-Movement 8s 1s 1;
+}
+
+@keyframes Unicorn-Movement {
+
+  0% {
+    margin-top: -500px;
+    margin-left: -300px;
+  }
+  50% {
+    margin-top: -500px;
+    margin-left:700px;
+  }
+
+  100% {
+    margin-top: -500px;
+    margin-left: 10000px;
+  }
+
+}
 
