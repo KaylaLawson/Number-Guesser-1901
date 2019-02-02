@@ -4,17 +4,52 @@ var updateBtn = document.querySelector('.update-btn');
 var submitBtn = document.querySelector('.submit-guess-btn');
 var resetBtn = document.querySelector('.reset-game-btn');
 var clearBtn = document.querySelector('.clear-game-btn');
-var displayCurMin = document.querySelector('.cur-min');
-var displayCurMax = document.querySelector('.cur-max');
 var chalName1Input = document.querySelector('.chal-name-1');
 var chalName2Input = document.querySelector('.chal-name-2');
 var inputsArray = document.querySelectorAll('.inputs');
 var infoBox = document.querySelector('.chal-info');
 var guessOne = document.querySelector('.chal-guess-1');
 var guessTwo = document.querySelector('.chal-guess-2');
+var displayCurMin = document.querySelector('.cur-min');
+var displayCurMax = document.querySelector('.cur-max');
 var randoNum;
-var newMin = document.querySelector('.inp-min-range');
-var newMax = document.querySelector('.inp-max-range');
+
+function appendCard() {
+  if (parseInt(guessOne.value) === randoNum && parseInt(guessTwo.value) === randoNum) {
+    alert('FIX THIS')
+  } else if(parseInt(guessOne.value) === randoNum || parseInt(guessTwo.value) === randoNum) {
+    generateCard();
+  }
+}
+
+function generateCard() {
+  var cardLocal = document.querySelector('.leaderboard')
+  var card = `
+  <div class="win-card">
+        <article class="win-card-top wc-styling">
+          <h5 class="card-name-1">CHALLENGER 1 NAME</h5>
+         <span class="cur-guess">vs</span>
+         <h5 class="card-name-2">CHALLENGER 2 NAME</h5>
+        </article>
+        <article class="win-card-mid border-top-bot">
+          <div class="flex-column">
+           <h2>CHALLENGER NAME</h2>
+           <h2 class="win flex-center">WINNER</h2>
+          </div>
+        </article>
+        <article class="win-card-bot wc-styling">
+         <h5><span class="num-of-guesses">47</span> GUESSES</h5>
+          <h5><span class="num-of-minutes">1.35</span> MINUTES</h5>
+          <button class="del-btn">&times;</button>
+      </article>
+    </div>
+    `
+    cardLocal.innerHTML += card;
+
+  }
+
+
+
 
 
 // EVENT LISTENERS ʕ•ᴥ•ʔ
@@ -25,11 +60,15 @@ resetBtn.addEventListener('click', resetInputs);
 clearBtn.addEventListener('click', clearGame);
 infoBox.addEventListener('keyup', disableBtn);
 
+window.onload = randomNumber(1, 100);
+
 // FUNCTIONS (╯°□°）╯︵ ┻┻
 
 // if no value use 1 or 100 woop
 function setRange(event) {
   event.preventDefault();
+  var newMin = document.querySelector('.inp-min-range');
+  var newMax = document.querySelector('.inp-max-range');
   displayCurMin.innerText = newMin.value;
   displayCurMax.innerText = newMax.value;
   if (newMin.value === "" && newMax.value === "") {
@@ -56,7 +95,7 @@ function challengerAlert1() {
   if (checkGuessOne === randoNum) {
     alertChalOne.innerText = "BOOM!"
     var element = document.getElementById("unicorn-jail")
-    element.classList.add("unicorn")
+    element.classList.add("unicorn")   
   } else if (checkGuessOne < randoNum) {
     alertChalOne.innerText = "that's too low!" 
   } else if (checkGuessOne > randoNum) { 
@@ -64,8 +103,8 @@ function challengerAlert1() {
   } else{
     alertChalOne.innerText = "guess";
   }
-
 }
+
 function challengerAlert2() {
   var checkGuessTwo = parseInt(guessTwo.value);
   var alertChalTwo = document.querySelector('.high-low-2');
@@ -77,11 +116,11 @@ function challengerAlert2() {
     alertChalTwo.innerText = "that's too low!" 
   } else if (checkGuessTwo > randoNum) { 
     alertChalTwo.innerText = "that's too high!"
-  } else{
+  } else {
     alertChalTwo.innerText = "guess";
   }
-
 }
+
 
 function submitGuess(event) {
   var guessOneDisplay = document.querySelector('.guess-display-1');
@@ -95,38 +134,30 @@ function submitGuess(event) {
   resetError();
   errorGuess1();
   errorGuess2();
+  appendCard();
   challengerAlert1();
   challengerAlert2();
 }
 
-
 function errorGuess1() {
-  var minRangeVar = document.querySelector('.cur-min');
-  var lowerRange = parseInt(minRangeVar.innerText);
-  var maxRangeVar = document.querySelector('.cur-max');
-  var higherRange = parseInt(maxRangeVar.innerText);
   var guessOneDisplay = parseInt(guessOne.value);
   var guessTwoDisplay = parseInt(guessTwo.value);
+  var lowerRange = parseInt(displayCurMin.innerText);
+  var higherRange = parseInt(displayCurMax.innerText);
   if (lowerRange > guessOneDisplay) {
     guessOne.value = "";
     guessOne.placeholder='Invalid';
-
   } else if (higherRange < guessOneDisplay) {
     guessOne.value = "";
     guessOne.placeholder='Invalid';
   } 
 }
 
-
-
 function errorGuess2() {
-
-  var minRangeVar = document.querySelector('.cur-min');
-  var lowerRange = parseInt(minRangeVar.innerText);
-  var maxRangeVar = document.querySelector('.cur-max');
-  var higherRange = parseInt(maxRangeVar.innerText);
   var guessOneDisplay = parseInt(guessOne.value);
   var guessTwoDisplay = parseInt(guessTwo.value);
+  var lowerRange = parseInt(displayCurMin.innerText);
+  var higherRange = parseInt(displayCurMax.innerText);
   if (lowerRange > guessTwoDisplay) {
     guessTwo.value = "";
     guessTwo.placeholder='Invalid';
@@ -136,7 +167,6 @@ function errorGuess2() {
   }
 }
 
-
 function resetInputs(event) {
   inputsArray.forEach(function(element) {
   if (element.value === "") {
@@ -145,7 +175,7 @@ function resetInputs(event) {
       element.value = "";
       element.placeholder = 'Enter';
      }
-  }) 
+  }); 
 }
 
 function resetError(event) {
@@ -153,7 +183,7 @@ function resetError(event) {
   if (element.value === "") {
       element.placeholder = 'Not a valid entry';
   }
-  }) 
+  }); 
 }
 
 function clearGame(event) {
@@ -167,3 +197,4 @@ function disableBtn(event) {
   document.getElementById('disable-btn').disabled=false;
   document.getElementById('disable-btn1').disabled=false;
 }
+
