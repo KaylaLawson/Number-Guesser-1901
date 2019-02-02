@@ -1,5 +1,5 @@
 // GLOBAL VARIABLES  (ⓛﻌⓛ*)
-
+var deleteBtn = document.querySelector('.del-btn');
 var updateBtn = document.querySelector('.update-btn');
 var submitBtn = document.querySelector('.submit-guess-btn');
 var resetBtn = document.querySelector('.reset-game-btn');
@@ -15,33 +15,23 @@ var displayCurMax = document.querySelector('.cur-max');
 var randoNum;
 var counterNum = 0;
 var seconds = 0;
+var leaderboard = document.querySelector('.leaderboard');
 
 // function factory ( ͡o ͜ʖ ͡o) // 
 
-// function determineTime() {
-//   seconds++;
-// }
+function deleteCard() {
+  if (event.target.className === 'del-btn') {
 
-// function startTimer(){
-//   var seconds = 0;
-//   var alertChalOne = document.querySelector('.high-low-1').innerText;
-//   var alertChalTwo = document.querySelector('.high-low-2').innerText;
-//   if(alertChalOne !=='BOOM!') {
-//     setInterval(determineTime, 1000);
-//   } else  {
-//     seconds = 0;
+  event.target.parentElement.parentElement.remove();
+ }
+}
 
-//   clearInterval(timerStart);
-//   console.log('look at this');
-
-//   }
-// }
 
 
 
 
 // EVENT LISTENERS ʕ•ᴥ•ʔ
-
+leaderboard.addEventListener('click', deleteCard);
 updateBtn.addEventListener('click', setRange);
 submitBtn.addEventListener('click', submitGuess);
 resetBtn.addEventListener('click', resetInputs);
@@ -82,7 +72,7 @@ function challengerAlert1() {
   if (checkGuessOne === randoNum) {
     alertChalOne.innerText = "BOOM!"
     var element = document.getElementById("unicorn-jail")
-    element.classList.add("unicorn")   
+    element.classList.toggle("unicorn")   
   } else if (checkGuessOne < randoNum) {
     alertChalOne.innerText = "that's too low!" 
   } else if (checkGuessOne > randoNum) { 
@@ -98,7 +88,7 @@ function challengerAlert2() {
   if (checkGuessTwo === randoNum) {
     alertChalTwo.innerText = "BOOM!"
     var element = document.getElementById("unicorn-jail")
-    element.classList.add("unicorn")
+    element.classList.toggle("unicorn")
   } else if (checkGuessTwo < randoNum) {
     alertChalTwo.innerText = "that's too low!" 
   } else if (checkGuessTwo > randoNum) { 
@@ -165,8 +155,10 @@ function resetInputs(event) {
       element.placeholder = 'Enter';
 
      }
-  }); 
-  randomNumber(1, 100);
+  });
+  displayCurMin.innerText = " 1 ";
+  displayCurMax.innerText = " 100 ";
+  randomNumber(1,100);
 }
 
 function resetError(event) {
@@ -179,8 +171,8 @@ function resetError(event) {
 
 function clearGame(event) {
   event.preventDefault();
-  displayCurMin.innerText = " ? ";
-  displayCurMax.innerText = " ? ";
+  displayCurMin.innerText = " 1 ";
+  displayCurMax.innerText = " 100 ";
   resetInputs();
 }
 
@@ -233,4 +225,25 @@ function generateCard(cardName1, cardName2, winner, counter, seconds) {
     cardLocal.innerHTML += card;
 
   }
+
+  //function jail //
+  // function determineTime() {
+//   seconds++;
+// }
+
+// function startTimer(){
+//   var seconds = 0;
+//   var alertChalOne = document.querySelector('.high-low-1').innerText;
+//   var alertChalTwo = document.querySelector('.high-low-2').innerText;
+//   if(alertChalOne !=='BOOM!') {
+//     setInterval(determineTime, 1000);
+//   } else  {
+//     seconds = 0;
+
+//   clearInterval(timerStart);
+//   console.log('look at this');
+
+//   }
+// }
+
 
