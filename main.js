@@ -13,52 +13,29 @@ var guessTwo = document.querySelector('.chal-guess-2');
 var displayCurMin = document.querySelector('.cur-min');
 var displayCurMax = document.querySelector('.cur-max');
 var randoNum;
+var counterNum = 0;
+var seconds = 0;
 
-function appendCard() {
-  if (parseInt(guessOne.value) === randoNum && parseInt(guessTwo.value) === randoNum) {
-    alert('FIX THIS')
-  } else if(parseInt(guessOne.value) === randoNum || parseInt(guessTwo.value) === randoNum) {
-    generateCard();
-  }
-}
+// function factory ( ͡o ͜ʖ ͡o) // 
 
-function generateCard(cardName1, cardName2, winner) {
-  var cardName1 = chalName1Input.value;
-  var cardName2 = chalName2Input.value;
-  var winner;
-  var alertChalOne = document.querySelector('.high-low-1').innerText;
-  var cardLocal = document.querySelector('.leaderboard');
-  if (alertChalOne === 'BOOM!') {
-    winner = cardName1;  
-  } else {
-    winner = cardName2;
-  }
+// function determineTime() {
+//   seconds++;
+// }
 
+// function startTimer(){
+//   var seconds = 0;
+//   var alertChalOne = document.querySelector('.high-low-1').innerText;
+//   var alertChalTwo = document.querySelector('.high-low-2').innerText;
+//   if(alertChalOne !=='BOOM!') {
+//     setInterval(determineTime, 1000);
+//   } else  {
+//     seconds = 0;
 
-  var card = `
-  <div class="win-card">
-        <article class="win-card-top wc-styling">
-          <h5 class="card-name-1">${cardName1}</h5>
-         <span class="cur-guess">vs</span>
-         <h5 class="card-name-2">${cardName2}</h5>
-        </article>
-        <article class="win-card-mid border-top-bot">
-          <div class="flex-column">
-           <h2>${winner}</h2>
-           <h2 class="win flex-center">WINNER</h2>
-          </div>
-        </article>
-        <article class="win-card-bot wc-styling">
-         <h5><span class="num-of-guesses">47</span> GUESSES</h5>
-          <h5><span class="num-of-minutes">1.35</span> MINUTES</h5>
-          <button class="del-btn">&times;</button>
-      </article>
-    </div>
-    `
-    cardLocal.innerHTML += card;
+//   clearInterval(timerStart);
+//   console.log('look at this');
 
-  }
-
+//   }
+// }
 
 
 
@@ -70,7 +47,6 @@ submitBtn.addEventListener('click', submitGuess);
 resetBtn.addEventListener('click', resetInputs);
 clearBtn.addEventListener('click', clearGame);
 infoBox.addEventListener('keyup', disableBtn);
-
 window.onload = randomNumber(1, 100);
 
 // FUNCTIONS (╯°□°）╯︵ ┻┻
@@ -134,6 +110,7 @@ function challengerAlert2() {
 
 
 function submitGuess(event) {
+  counterNum++;
   var guessOneDisplay = document.querySelector('.guess-display-1');
   var guessTwoDisplay = document.querySelector('.guess-display-2');
   var lsNameChange1 = document.querySelector('.updated-name-1');
@@ -147,6 +124,7 @@ function submitGuess(event) {
   errorGuess2();
   challengerAlert1();
   challengerAlert2();
+  // startTimer();
   appendCard();
 }
 
@@ -185,8 +163,10 @@ function resetInputs(event) {
   } else {
       element.value = "";
       element.placeholder = 'Enter';
+
      }
   }); 
+  randomNumber(1, 100);
 }
 
 function resetError(event) {
@@ -208,4 +188,49 @@ function disableBtn(event) {
   document.getElementById('disable-btn').disabled=false;
   document.getElementById('disable-btn1').disabled=false;
 }
+
+// append card // 
+function appendCard() {
+  if (parseInt(guessOne.value) === randoNum && parseInt(guessTwo.value) === randoNum) {
+    alert('FIX THIS')
+  } else if(parseInt(guessOne.value) === randoNum || parseInt(guessTwo.value) === randoNum) {
+    generateCard();
+  }
+}
+
+function generateCard(cardName1, cardName2, winner, counter, seconds) {
+  var cardName1 = chalName1Input.value;
+  var cardName2 = chalName2Input.value;
+  var winner;
+  var counter = counterNum;
+  var alertChalOne = document.querySelector('.high-low-1').innerText;
+  var cardLocal = document.querySelector('.leaderboard');
+  if (alertChalOne === 'BOOM!') {
+    winner = cardName1;  
+  } else {
+    winner = cardName2;
+  }
+  var card = `
+  <div class="win-card">
+        <article class="win-card-top wc-styling">
+          <h5 class="card-name-1">${cardName1}</h5>
+         <span class="cur-guess">vs</span>
+         <h5 class="card-name-2">${cardName2}</h5>
+        </article>
+        <article class="win-card-mid border-top-bot">
+          <div class="flex-column">
+           <h2>${winner}</h2>
+           <h2 class="win flex-center">WINNER</h2>
+          </div>
+        </article>
+        <article class="win-card-bot wc-styling">
+         <h5><span class="num-of-guesses">${counter}</span> GUESSES</h5>
+          <h5><span class="num-of-minutes">${seconds}</span> MINUTES</h5>
+          <button class="del-btn">&times;</button>
+      </article>
+    </div>
+    `
+    cardLocal.innerHTML += card;
+
+  }
 
