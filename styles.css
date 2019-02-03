@@ -17,7 +17,9 @@ main {
   display: inline-flex;
   width: 100%;
   justify-content: space-around;
+  height:100vh;
 }
+
 
 article {
   margin: 15px;
@@ -147,6 +149,10 @@ input {
 
 }
 
+.guess-err {
+
+  border: 1px hotpink solid;
+}
 /* -----------Left Side Styling -----------*/
 .player-info {
   width: 100%;
@@ -193,6 +199,7 @@ section.game-btn {
 .leaderboard {
   width: 100%;
   background-color:#D1D2D4;
+  overflow:scroll;
 }
 .win-card {
   background-color:white;
@@ -238,7 +245,7 @@ border-bottom: 1.5px lightgrey solid;
   margin-top: -500px;
   margin-left: -300px;
   animation-name: Unicorn-Movement;
-  animation: Unicorn-Movement 8s 1s 1;
+  animation: Unicorn-Movement 4s 1s 1;
 }
 
 @keyframes Unicorn-Movement {
@@ -256,6 +263,7 @@ border-bottom: 1.5px lightgrey solid;
     margin-top: -500px;
     margin-left: 10000px;
   }
+  
 
 }
 
