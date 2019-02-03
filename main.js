@@ -19,13 +19,6 @@ var leaderboard = document.querySelector('.leaderboard');
 
 // function factory ( ͡o ͜ʖ ͡o) // 
 
-function deleteCard() {
-  if (event.target.className === 'del-btn') {
-
-  event.target.parentElement.parentElement.remove();
- }
-}
-
 
 
 
@@ -49,14 +42,14 @@ function setRange(event) {
   displayCurMin.innerText = newMin.value;
   displayCurMax.innerText = newMax.value;
   if (newMin.value === "" && newMax.value === "") {
-      newMin.placeholder = 'Invalid';
-      newMax.placeholder = 'Invalid';
+      // newMin.placeholder = 'Invalid';
+      // newMax.placeholder = 'Invalid';
   } else {
     randomNumber(parseInt(newMin.value), parseInt(newMax.value));
     newMin.value ="";
-    newMin.placeholder = "";
+    // newMin.placeholder = "";
     newMax.value ="";
-    newMax.placeholder = "";
+    // newMax.placeholder = "";
   }
 }
 
@@ -109,65 +102,67 @@ function submitGuess(event) {
   guessTwoDisplay.innerText = parseInt(guessTwo.value);
   lsNameChange1.innerText = chalName1Input.value;
   lsNameChange2.innerText = chalName2Input.value;
-  resetError();
   errorGuess1();
   errorGuess2();
+  errorName1();
+  errorName2();
   challengerAlert1();
   challengerAlert2();
-  // startTimer();
   appendCard();
+}
+function errorName1() {
+  if (chalName1Input.value === "" ) {
+    chalName1Input.classList.add("guess-err");
+  } else {
+    chalName1Input.classList.remove("guess-err");
+
+  }
+}
+function errorName2() {
+  if (chalName2Input.value === "" ) {
+    chalName2Input.classList.add("guess-err");
+  } else {
+    chalName2Input.classList.remove("guess-err");
+  }
 }
 
 function errorGuess1() {
-  var guessOneDisplay = parseInt(guessOne.value);
-  var guessTwoDisplay = parseInt(guessTwo.value);
+  var guessOneDisplay = guessOne.value;
+  var guessTwoDisplay = guessTwo.value;
   var lowerRange = parseInt(displayCurMin.innerText);
   var higherRange = parseInt(displayCurMax.innerText);
-  if (lowerRange > guessOneDisplay) {
-    guessOne.value = "";
-    guessOne.placeholder='Invalid';
-  } else if (higherRange < guessOneDisplay) {
-    guessOne.value = "";
-    guessOne.placeholder='Invalid';
-  } 
-}
+  if (lowerRange > guessOneDisplay || guessOneDisplay === "") {
+    guessOne.classList.add("guess-err");
+  } else if (higherRange < guessOneDisplay || guessOneDisplay === "") {
+    guessOne.classList.add("guess-err")
+  } else {
+     guessOne.classList.remove("guess-err")
 
+  }
+}
 function errorGuess2() {
-  var guessOneDisplay = parseInt(guessOne.value);
-  var guessTwoDisplay = parseInt(guessTwo.value);
+  var guessOneDisplay = guessOne.value;
+  var guessTwoDisplay = guessTwo.value;
   var lowerRange = parseInt(displayCurMin.innerText);
   var higherRange = parseInt(displayCurMax.innerText);
   if (lowerRange > guessTwoDisplay) {
-    guessTwo.value = "";
-    guessTwo.placeholder='Invalid';
+    guessTwo.classList.add("guess-err")
   } else if (higherRange < guessTwoDisplay) {
-    guessTwo.value = "";
-    guessTwo.placeholder='Invalid';
+    guessTwo.classList.add("guess-err")
+  } else {
+    guessTwo.classList.remove("guess-err")
   }
 }
 
 function resetInputs(event) {
   inputsArray.forEach(function(element) {
-  if (element.value === "") {
-      element.placeholder = 'Not a valid entry';
-  } else {
-      element.value = "";
-      element.placeholder = 'Enter';
-
-     }
-  });
+  element.value = "";    
+})
   displayCurMin.innerText = " 1 ";
   displayCurMax.innerText = " 100 ";
   randomNumber(1,100);
 }
 
-function resetError(event) {
-  inputsArray.forEach(function(element) {
-  if (element.value === "") {
-      element.placeholder = 'Not a valid entry';
-  }
-  }); 
-}
 
 function clearGame(event) {
   event.preventDefault();
@@ -177,8 +172,16 @@ function clearGame(event) {
 }
 
 function disableBtn(event) {
+ 
+  if (guessOne.value !== "" || guessTwo.value !== "" || chalName1Input.value !== "" || chalName2Input.value !== ""){
   document.getElementById('disable-btn').disabled=false;
-  document.getElementById('disable-btn1').disabled=false;
+  document.getElementById('disable-btn1').disabled=false; 
+
+  } else if (guessOne.value === "" && guessTwo.value === "" && chalName1Input.value === "" && chalName2Input.value === ""){
+  document.getElementById('disable-btn').disabled=true;
+  document.getElementById('disable-btn1').disabled=true;   
+  };
+
 }
 
 // append card // 
@@ -225,6 +228,13 @@ function generateCard(cardName1, cardName2, winner, counter, seconds) {
     cardLocal.innerHTML += card;
 
   }
+function deleteCard() {
+  if (event.target.className === 'del-btn') {
+
+  event.target.parentElement.parentElement.remove();
+ }
+}
+
 
   //function jail //
   // function determineTime() {
