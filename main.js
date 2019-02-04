@@ -40,11 +40,30 @@ function setRange(event) {
   var newMax = document.querySelector('.inp-max-range');
   displayCurMin.innerText = newMin.value;
   displayCurMax.innerText = newMax.value;
-  if (newMin.value === "" && newMax.value === "") {
+  if (newMin.value === "" && newMax.value === "" || newMin.value > newMax.value) {
+    newMin.classList.add("guess-err")
+    newMax.classList.add("guess-err")
+    displayCurMin.innerText = '?';
+    displayCurMax.innerText = '?';
+  } else if (newMin.value > newMax.value) {
+    newMin.classList.add("guess-err")
+    newMax.classList.add("guess-err")
+    displayCurMin.innerText = '?';
+    displayCurMax.innerText = '?';
+  } else if(newMin.value === "") {
+    newMin.classList.add("guess-err")
+    displayCurMin.innerText = '?';
+    displayCurMax.innerText = '?';
+  } else if(newMax.value === "") {
+    newMax.classList.add("guess-err")
+    displayCurMin.innerText = '?';
+    displayCurMax.innerText = '?';
   } else {
     randomNumber(parseInt(newMin.value), parseInt(newMax.value));
     newMin.value ="";
     newMax.value ="";
+    newMax.classList.remove("guess-err");
+    newMin.classList.remove("guess-err");
   }
 }
 
