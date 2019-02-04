@@ -19,7 +19,9 @@ main {
   justify-content: space-around;
   height:100vh;
 }
-
+.hidden {
+  display:none;
+}
 
 article {
   margin: 15px;
@@ -148,10 +150,13 @@ input {
   width: 156px;
 
 }
-
+/*-------- error--------- */
 .guess-err {
-
   border: 1px hotpink solid;
+}
+.err-text {
+  font-size: 12px;
+  color: hotpink;
 }
 /* -----------Left Side Styling -----------*/
 .player-info {

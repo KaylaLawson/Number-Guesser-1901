@@ -18,17 +18,6 @@ var seconds = 0;
 var leaderboard = document.querySelector('.leaderboard');
 
 // function factory ( ͡o ͜ʖ ͡o) // 
-function incrementRange() {
-  var lowIncrement = parseInt(displayCurMin.innerText);
-  var highIncrement = parseInt(displayCurMax.innerText);
-  var guessOneInc = parseInt(guessOne.value);
-  var guessTwoInc = parseInt(guessTwo.value);
-  if (guessOneInc === randoNum|| guessTwoInc === randoNum){
-    displayCurMin.innerText = lowIncrement -= 10;
-    displayCurMax.innerText = highIncrement += 10;
-    randomNumber(parseInt(displayCurMin.innerText), parseInt(displayCurMax.innerText));
-  }
-}
 
 
 
@@ -52,14 +41,10 @@ function setRange(event) {
   displayCurMin.innerText = newMin.value;
   displayCurMax.innerText = newMax.value;
   if (newMin.value === "" && newMax.value === "") {
-      // newMin.placeholder = 'Invalid';
-      // newMax.placeholder = 'Invalid';
   } else {
     randomNumber(parseInt(newMin.value), parseInt(newMax.value));
     newMin.value ="";
-    // newMin.placeholder = "";
     newMax.value ="";
-    // newMax.placeholder = "";
   }
 }
 
@@ -112,7 +97,6 @@ function submitGuess(event) {
   guessTwoDisplay.innerText = parseInt(guessTwo.value);
   lsNameChange1.innerText = chalName1Input.value;
   lsNameChange2.innerText = chalName2Input.value;
-  incrementRange();
   errorGuess1();
   errorGuess2();
   errorName1();
@@ -120,6 +104,7 @@ function submitGuess(event) {
   challengerAlert1();
   challengerAlert2();
   appendCard();
+  incrementRange();
 }
 function errorName1() {
   if (chalName1Input.value === "" ) {
@@ -144,6 +129,7 @@ function errorGuess1() {
   var higherRange = parseInt(displayCurMax.innerText);
   if (lowerRange > guessOneDisplay || guessOneDisplay === "") {
     guessOne.classList.add("guess-err");
+
   } else if (higherRange < guessOneDisplay || guessOneDisplay === "") {
     guessOne.classList.add("guess-err")
   } else {
@@ -246,8 +232,19 @@ function deleteCard() {
  }
 }
 
+function incrementRange() {
+  var lowIncrement = parseInt(displayCurMin.innerText);
+  var highIncrement = parseInt(displayCurMax.innerText);
+  var guessOneInc = parseInt(guessOne.value);
+  var guessTwoInc = parseInt(guessTwo.value);
+  if (guessOneInc === randoNum|| guessTwoInc === randoNum){
+    displayCurMin.innerText = lowIncrement -= 10;
+    displayCurMax.innerText = highIncrement += 10;
+    randomNumber(parseInt(displayCurMin.innerText), parseInt(displayCurMax.innerText));
+  }
+}
 
-  //function jail //
+//------------ function jail--------------//
   // function determineTime() {
 //   seconds++;
 // }
