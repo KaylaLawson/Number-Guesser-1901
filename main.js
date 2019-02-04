@@ -18,7 +18,17 @@ var seconds = 0;
 var leaderboard = document.querySelector('.leaderboard');
 
 // function factory ( ͡o ͜ʖ ͡o) // 
-
+function incrementRange() {
+  var lowIncrement = parseInt(displayCurMin.innerText);
+  var highIncrement = parseInt(displayCurMax.innerText);
+  var guessOneInc = parseInt(guessOne.value);
+  var guessTwoInc = parseInt(guessTwo.value);
+  if (guessOneInc === randoNum|| guessTwoInc === randoNum){
+    displayCurMin.innerText = lowIncrement -= 10;
+    displayCurMax.innerText = highIncrement += 10;
+    randomNumber(parseInt(displayCurMin.innerText), parseInt(displayCurMax.innerText));
+  }
+}
 
 
 
@@ -65,7 +75,7 @@ function challengerAlert1() {
   if (checkGuessOne === randoNum) {
     alertChalOne.innerText = "BOOM!"
     var element = document.getElementById("unicorn-jail")
-    element.classList.toggle("unicorn")   
+    element.classList.toggle("unicorn")
   } else if (checkGuessOne < randoNum) {
     alertChalOne.innerText = "that's too low!" 
   } else if (checkGuessOne > randoNum) { 
@@ -102,6 +112,7 @@ function submitGuess(event) {
   guessTwoDisplay.innerText = parseInt(guessTwo.value);
   lsNameChange1.innerText = chalName1Input.value;
   lsNameChange2.innerText = chalName2Input.value;
+  incrementRange();
   errorGuess1();
   errorGuess2();
   errorName1();
