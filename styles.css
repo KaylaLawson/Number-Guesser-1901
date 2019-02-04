@@ -232,6 +232,11 @@ section.game-btn {
 border-top: 1.5px lightgrey solid;
 border-bottom: 1.5px lightgrey solid;
  }
+ .align-center {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+ }
 
 /* ------------ Unicorn-------- */
 

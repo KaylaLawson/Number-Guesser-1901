@@ -230,8 +230,10 @@ function generateCard(cardName1, cardName2, winner, counter, seconds) {
         </article>
         <article class="win-card-mid border-top-bot">
           <div class="flex-column">
-           <h2>${winner}</h2>
-           <h2 class="win flex-center">WINNER</h2>
+            <div class="align-center">
+              <h2>${winner}</h2>
+              <h2 class="win flex-center">WINNER</h2>
+            </div>
           </div>
         </article>
         <article class="win-card-bot wc-styling">
