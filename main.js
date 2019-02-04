@@ -22,7 +22,6 @@ var leaderboard = document.querySelector('.leaderboard');
 
 
 
-
 // EVENT LISTENERS ʕ•ᴥ•ʔ
 leaderboard.addEventListener('click', deleteCard);
 updateBtn.addEventListener('click', setRange);
@@ -41,15 +40,30 @@ function setRange(event) {
   var newMax = document.querySelector('.inp-max-range');
   displayCurMin.innerText = newMin.value;
   displayCurMax.innerText = newMax.value;
-  if (newMin.value === "" && newMax.value === "") {
-      // newMin.placeholder = 'Invalid';
-      // newMax.placeholder = 'Invalid';
+  if (newMin.value === "" && newMax.value === "" || newMin.value > newMax.value) {
+    newMin.classList.add("guess-err")
+    newMax.classList.add("guess-err")
+    displayCurMin.innerText = '?';
+    displayCurMax.innerText = '?';
+  } else if (newMin.value > newMax.value) {
+    newMin.classList.add("guess-err")
+    newMax.classList.add("guess-err")
+    displayCurMin.innerText = '?';
+    displayCurMax.innerText = '?';
+  } else if(newMin.value === "") {
+    newMin.classList.add("guess-err")
+    displayCurMin.innerText = '?';
+    displayCurMax.innerText = '?';
+  } else if(newMax.value === "") {
+    newMax.classList.add("guess-err")
+    displayCurMin.innerText = '?';
+    displayCurMax.innerText = '?';
   } else {
     randomNumber(parseInt(newMin.value), parseInt(newMax.value));
     newMin.value ="";
-    // newMin.placeholder = "";
     newMax.value ="";
-    // newMax.placeholder = "";
+    newMax.classList.remove("guess-err");
+    newMin.classList.remove("guess-err");
   }
 }
 
@@ -65,7 +79,7 @@ function challengerAlert1() {
   if (checkGuessOne === randoNum) {
     alertChalOne.innerText = "BOOM!"
     var element = document.getElementById("unicorn-jail")
-    element.classList.toggle("unicorn")   
+    element.classList.toggle("unicorn")
   } else if (checkGuessOne < randoNum) {
     alertChalOne.innerText = "that's too low!" 
   } else if (checkGuessOne > randoNum) { 
@@ -109,6 +123,7 @@ function submitGuess(event) {
   challengerAlert1();
   challengerAlert2();
   appendCard();
+  incrementRange();
 }
 function errorName1() {
   if (chalName1Input.value === "" ) {
@@ -133,6 +148,7 @@ function errorGuess1() {
   var higherRange = parseInt(displayCurMax.innerText);
   if (lowerRange > guessOneDisplay || guessOneDisplay === "") {
     guessOne.classList.add("guess-err");
+
   } else if (higherRange < guessOneDisplay || guessOneDisplay === "") {
     guessOne.classList.add("guess-err")
   } else {
@@ -214,8 +230,10 @@ function generateCard(cardName1, cardName2, winner, counter, seconds) {
         </article>
         <article class="win-card-mid border-top-bot">
           <div class="flex-column">
-           <h2>${winner}</h2>
-           <h2 class="win flex-center">WINNER</h2>
+            <div class="align-center">
+              <h2>${winner}</h2>
+              <h2 class="win flex-center">WINNER</h2>
+            </div>
           </div>
         </article>
         <article class="win-card-bot wc-styling">
@@ -235,8 +253,19 @@ function deleteCard() {
  }
 }
 
+function incrementRange() {
+  var lowIncrement = parseInt(displayCurMin.innerText);
+  var highIncrement = parseInt(displayCurMax.innerText);
+  var guessOneInc = parseInt(guessOne.value);
+  var guessTwoInc = parseInt(guessTwo.value);
+  if (guessOneInc === randoNum|| guessTwoInc === randoNum){
+    displayCurMin.innerText = lowIncrement -= 10;
+    displayCurMax.innerText = highIncrement += 10;
+    randomNumber(parseInt(displayCurMin.innerText), parseInt(displayCurMax.innerText));
+  }
+}
 
-  //function jail //
+//------------ function jail--------------//
   // function determineTime() {
 //   seconds++;
 // }
