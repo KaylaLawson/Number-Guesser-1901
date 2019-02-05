@@ -38,32 +38,34 @@ function setRange(event) {
   event.preventDefault();
   var newMin = document.querySelector('.inp-min-range');
   var newMax = document.querySelector('.inp-max-range');
-  displayCurMin.innerText = newMin.value;
-  displayCurMax.innerText = newMax.value;
-  if (newMin.value === "" && newMax.value === "" || newMin.value > newMax.value) {
+  var numMax = parseInt(newMax.value);
+  var numMin = parseInt(newMin.value);
+  displayCurMin.innerText = numMin;
+  displayCurMax.innerText = numMax;
+  if (newMin.value === "" && newMax.value === "" || numMax < numMin) {
     newMin.classList.add("guess-err")
     newMax.classList.add("guess-err")
-    displayCurMin.innerText = '?';
-    displayCurMax.innerText = '?';
-  } else if (newMin.value > newMax.value) {
+    displayCurMin.innerText = '?'
+    displayCurMax.innerText = '?'
+  } else if (numMin.value > numMax.value) {
     newMin.classList.add("guess-err")
     newMax.classList.add("guess-err")
-    displayCurMin.innerText = '?';
-    displayCurMax.innerText = '?';
+    displayCurMin.innerText = '?'
+    displayCurMax.innerText = '?'
   } else if(newMin.value === "") {
     newMin.classList.add("guess-err")
-    displayCurMin.innerText = '?';
-    displayCurMax.innerText = '?';
+    displayCurMin.innerText = '?'
+    displayCurMax.innerText = '?'
   } else if(newMax.value === "") {
     newMax.classList.add("guess-err")
-    displayCurMin.innerText = '?';
-    displayCurMax.innerText = '?';
+    displayCurMin.innerText = '?'
+    displayCurMax.innerText = '?'
   } else {
     randomNumber(parseInt(newMin.value), parseInt(newMax.value));
-    newMin.value ="";
-    newMax.value ="";
-    newMax.classList.remove("guess-err");
-    newMin.classList.remove("guess-err");
+    newMin.value =""
+    newMax.value =""
+    newMax.classList.remove("guess-err")
+    newMin.classList.remove("guess-err")
   }
 }
 
@@ -88,7 +90,6 @@ function challengerAlert1() {
     alertChalOne.innerText = "guess";
   }
 }
-
 function challengerAlert2() {
   var checkGuessTwo = parseInt(guessTwo.value);
   var alertChalTwo = document.querySelector('.high-low-2');
@@ -104,8 +105,6 @@ function challengerAlert2() {
     alertChalTwo.innerText = "guess";
   }
 }
-
-
 function submitGuess(event) {
   counterNum++;
   var guessOneDisplay = document.querySelector('.guess-display-1');
@@ -169,7 +168,6 @@ function errorGuess2() {
     guessTwo.classList.remove("guess-err")
   }
 }
-
 function resetInputs(event) {
   inputsArray.forEach(function(element) {
   element.value = "";    
@@ -178,21 +176,16 @@ function resetInputs(event) {
   displayCurMax.innerText = " 100 ";
   randomNumber(1,100);
 }
-
-
 function clearGame(event) {
   event.preventDefault();
   displayCurMin.innerText = " 1 ";
   displayCurMax.innerText = " 100 ";
   resetInputs();
 }
-
 function disableBtn(event) {
- 
   if (guessOne.value !== "" || guessTwo.value !== "" || chalName1Input.value !== "" || chalName2Input.value !== ""){
   document.getElementById('disable-btn').disabled=false;
   document.getElementById('disable-btn1').disabled=false; 
-
   } else if (guessOne.value === "" && guessTwo.value === "" && chalName1Input.value === "" && chalName2Input.value === ""){
   document.getElementById('disable-btn').disabled=true;
   document.getElementById('disable-btn1').disabled=true;   
@@ -208,7 +201,6 @@ function appendCard() {
     generateCard();
   }
 }
-
 function generateCard(cardName1, cardName2, winner, counter, seconds) {
   var cardName1 = chalName1Input.value;
   var cardName2 = chalName2Input.value;
