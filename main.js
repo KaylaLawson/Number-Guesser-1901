@@ -40,6 +40,8 @@ function setRange(event) {
   var newMax = document.querySelector('.inp-max-range');
   var numMax = parseInt(newMax.value);
   var numMin = parseInt(newMin.value);
+  var targetMinRangeErr = document.querySelector('.min-range-err');
+  var targetMaxRangeErr = document.querySelector('.max-range-err');
   displayCurMin.innerText = numMin;
   displayCurMax.innerText = numMax;
   if (newMin.value === "" && newMax.value === "" || numMax < numMin) {
@@ -47,25 +49,36 @@ function setRange(event) {
     newMax.classList.add("guess-err")
     displayCurMin.innerText = '?'
     displayCurMax.innerText = '?'
+    targetMinRangeErr.classList.remove('hidden')
+    targetMaxRangeErr.classList.remove('hidden')
   } else if (numMin.value > numMax.value) {
     newMin.classList.add("guess-err")
     newMax.classList.add("guess-err")
     displayCurMin.innerText = '?'
     displayCurMax.innerText = '?'
+    targetMinRangeErr.classList.remove('hidden')
+    targetMaxRangeErr.classList.remove('hidden')
   } else if(newMin.value === "") {
     newMin.classList.add("guess-err")
     displayCurMin.innerText = '?'
     displayCurMax.innerText = '?'
+    targetMinRangeErr.classList.remove('hidden')
+    targetMaxRangeErr.classList.remove('hidden')
   } else if(newMax.value === "") {
     newMax.classList.add("guess-err")
     displayCurMin.innerText = '?'
     displayCurMax.innerText = '?'
+    targetMinRangeErr.classList.remove('hidden')
+    targetMaxRangeErr.classList.remove('hidden')
   } else {
     randomNumber(parseInt(newMin.value), parseInt(newMax.value));
     newMin.value =""
     newMax.value =""
     newMax.classList.remove("guess-err")
     newMin.classList.remove("guess-err")
+    targetMinRangeErr.classList.add('hidden')
+    targetMaxRangeErr.classList.add('hidden')
+
   }
 }
 
