@@ -150,28 +150,37 @@ function errorGuess1() {
   var guessTwoDisplay = guessTwo.value;
   var lowerRange = parseInt(displayCurMin.innerText);
   var higherRange = parseInt(displayCurMax.innerText);
+  var error = document.querySelector('.guess-1-err');
   if (lowerRange > guessOneDisplay || guessOneDisplay === "") {
     guessOne.classList.add("guess-err");
+    error.classList.remove('hidden');
   } else if (higherRange < guessOneDisplay || guessOneDisplay === "") {
-    guessOne.classList.add("guess-err")
+    guessOne.classList.add("guess-err");
+    error.classList.remove('hidden');
   } else {
-     guessOne.classList.remove("guess-err")
-
+     guessOne.classList.remove("guess-err");
+     error.classList.add('hidden');
   }
 }
+
 function errorGuess2() {
   var guessOneDisplay = guessOne.value;
   var guessTwoDisplay = guessTwo.value;
   var lowerRange = parseInt(displayCurMin.innerText);
   var higherRange = parseInt(displayCurMax.innerText);
+  var error = document.querySelector('.guess-2-err');
   if (lowerRange > guessTwoDisplay) {
     guessTwo.classList.add("guess-err")
+    error.classList.remove('hidden');
   } else if (higherRange < guessTwoDisplay) {
     guessTwo.classList.add("guess-err")
+    error.classList.remove('hidden');
   } else {
     guessTwo.classList.remove("guess-err")
+    error.classList.add('hidden');
   }
 }
+
 function resetInputs(event) {
   inputsArray.forEach(function(element) {
   element.value = "";    
@@ -180,12 +189,14 @@ function resetInputs(event) {
   displayCurMax.innerText = " 100 ";
   randomNumber(1,100);
 }
+
 function clearGame(event) {
   event.preventDefault();
   displayCurMin.innerText = " 1 ";
   displayCurMax.innerText = " 100 ";
   resetInputs();
 }
+
 function disableBtn(event) {
   if (guessOne.value !== "" || guessTwo.value !== "" || chalName1Input.value !== "" || chalName2Input.value !== ""){
   document.getElementById('disable-btn').disabled=false;
@@ -254,10 +265,10 @@ function incrementRange() {
   var highIncrement = parseInt(displayCurMax.innerText);
   var guessOneInc = parseInt(guessOne.value);
   var guessTwoInc = parseInt(guessTwo.value);
-  if (guessOneInc === randoNum|| guessTwoInc === randoNum){
+  if (guessOneInc === randoNum || guessTwoInc === randoNum){
     displayCurMin.innerText = lowIncrement -= 10;
     displayCurMax.innerText = highIncrement += 10;
-    randomNumber(parseInt(displayCurMin.innerText), parseInt(displayCurMax.innerText));
+    randomNumber(lowIncrement, highIncrement);
   }
 }
 
