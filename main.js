@@ -50,35 +50,19 @@ function setRange(event) {
     displayCurMin.innerText = '?'
     displayCurMax.innerText = '?'
     targetMinRangeErr.classList.remove('hidden')
-    targetMaxRangeErr.classList.remove('hidden')
-  } else if (numMin.value > numMax.value) {
-    newMin.classList.add("guess-err")
-    newMax.classList.add("guess-err")
+  } else if(newMin.value === "" || newMax.value === "") {
+    newMin.classList.add("guess-err");
+    newMax.classList.add("guess-err");
     displayCurMin.innerText = '?'
     displayCurMax.innerText = '?'
-    targetMinRangeErr.classList.remove('hidden')
-    targetMaxRangeErr.classList.remove('hidden')
-  } else if(newMin.value === "") {
-    newMin.classList.add("guess-err")
-    displayCurMin.innerText = '?'
-    displayCurMax.innerText = '?'
-    targetMinRangeErr.classList.remove('hidden')
-    targetMaxRangeErr.classList.remove('hidden')
-  } else if(newMax.value === "") {
-    newMax.classList.add("guess-err")
-    displayCurMin.innerText = '?'
-    displayCurMax.innerText = '?'
-    targetMinRangeErr.classList.remove('hidden')
-    targetMaxRangeErr.classList.remove('hidden')
+    targetMinRangeErr.classList.remove('hidden');
   } else {
     randomNumber(parseInt(newMin.value), parseInt(newMax.value));
-    newMin.value =""
-    newMax.value =""
+    newMin.value = ""
+    newMax.value = ""
     newMax.classList.remove("guess-err")
     newMin.classList.remove("guess-err")
     targetMinRangeErr.classList.add('hidden')
-    targetMaxRangeErr.classList.add('hidden')
-
   }
 }
 
@@ -137,19 +121,27 @@ function submitGuess(event) {
   appendCard();
   incrementRange();
 }
+
 function errorName1() {
+  var errorName = document.querySelector('.name-1-err');
   if (chalName1Input.value === "" ) {
     chalName1Input.classList.add("guess-err");
+    errorName.classList.remove('hidden');
   } else {
     chalName1Input.classList.remove("guess-err");
+    errorName.classList.add('hidden');
 
   }
 }
+
 function errorName2() {
+  var errorName = document.querySelector('.name-2-err');
   if (chalName2Input.value === "" ) {
     chalName2Input.classList.add("guess-err");
+    errorName.classList.remove('hidden');
   } else {
     chalName2Input.classList.remove("guess-err");
+    errorName.classList.add('hidden');
   }
 }
 
@@ -160,7 +152,6 @@ function errorGuess1() {
   var higherRange = parseInt(displayCurMax.innerText);
   if (lowerRange > guessOneDisplay || guessOneDisplay === "") {
     guessOne.classList.add("guess-err");
-
   } else if (higherRange < guessOneDisplay || guessOneDisplay === "") {
     guessOne.classList.add("guess-err")
   } else {
