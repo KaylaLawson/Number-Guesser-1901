@@ -25,7 +25,7 @@ article {
 }
 
 button {
-  background: lightgrey;
+  background: #595959;
   border-radius: 30px;
   border: none;
   color: white;
@@ -38,7 +38,10 @@ button {
 }
 
 button:hover {
-  background-color: #595959;
+  border: solid hotpink 3px;
+}
+.color-btn {
+  background-color: lightgrey;
 }
 
 .del-btn {

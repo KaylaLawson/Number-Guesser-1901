@@ -168,9 +168,14 @@ function disableBtn(event) {
   if (guessOne.value !== '' || guessTwo.value !== '' || chalName1Input.value !== '' || chalName2Input.value !== '') {
     resetBtn.disabled = false;
     clearBtn.disabled = false; 
+    resetBtn.classList.remove('color-btn');
+    clearBtn.classList.remove('color-btn');   
+
   } else if (guessOne.value === '' && guessTwo.value === '' && chalName1Input.value === '' && chalName2Input.value === '') {
     resetBtn.disabled = true;
-    clearBtn.disabled = true;    
+    clearBtn.disabled = true;
+    resetBtn.classList.add('color-btn');
+    clearBtn.classList.add('color-btn');   
   }
 }
 /* -------- On Win --------- */
@@ -217,7 +222,8 @@ function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
       </article>
     </div>
     `
-    cardLocal.innerHTML += card;
+
+    cardLocal.insertAdjacentHTML('afterbegin', card);
 }
 function deleteCard() {
   if (event.target.className === 'del-btn') {
@@ -235,7 +241,6 @@ function incrementRange() {
     randomNumber(lowIncrement, highIncrement);
     seconds = 0;
     counterNum = 0;
-    //?????///
   }
 }
 
