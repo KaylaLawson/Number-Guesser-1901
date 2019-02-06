@@ -16,8 +16,11 @@ var randoNum;
 var counterNum = 0;
 var seconds = 0;
 var leaderboard = document.querySelector('.leaderboard');
+
 // function factory ( ͡o ͜ʖ ͡o) // 
-// EVENT LISTENERS ʕ•ᴥ•ʔ
+
+// EVENT LISTENERS ʕ•ᴥ•ʔ//
+
 leaderboard.addEventListener('click', deleteCard);
 updateBtn.addEventListener('click', setRange);
 submitBtn.addEventListener('click', submitGuess);
@@ -83,9 +86,7 @@ function submitGuess(event) {
   appendCard();
   incrementRange();
 }
-
 /* -------- Error Notifications --------*/
-
 function displayError(newMin, newMax, displayCurMin, displayCurMax, targetMinRangeErr) {
     newMin.classList.add('guess-err');
     newMax.classList.add('guess-err');
@@ -93,7 +94,6 @@ function displayError(newMin, newMax, displayCurMin, displayCurMax, targetMinRan
     displayCurMax.innerText = '?';
     targetMinRangeErr.classList.remove('hidden');
 }
-
 function clearError(newMin, newMax, targetMinRangeErr) {
     newMin.value = '';
     newMax.value = '';
@@ -101,8 +101,6 @@ function clearError(newMin, newMax, targetMinRangeErr) {
     newMin.classList.remove('guess-err');
     targetMinRangeErr.classList.add('hidden');
 }
-
-
 function challengerAlert(checkValue, alertChal) {
      if (checkValue === randoNum) {
       alertChal.innerText = 'BOOM!'
@@ -140,8 +138,8 @@ function errorGuess1() {
     guessOne.classList.add('guess-err');
     error.classList.remove('hidden');
   } else {
-     guessOne.classList.remove('guess-err');
-     error.classList.add('hidden');
+    guessOne.classList.remove('guess-err');
+    error.classList.add('hidden');
   }
 }
 
@@ -151,7 +149,7 @@ function errorGuess2() {
   var lowerRange = parseInt(displayCurMin.innerText);
   var higherRange = parseInt(displayCurMax.innerText);
   var error = document.querySelector('.guess-2-err');
-  if (lowerRange > guessTwoDisplay) {
+    if (lowerRange > guessTwoDisplay || guessTwoDisplay === '') {
     guessTwo.classList.add('guess-err')
     error.classList.remove('hidden');
   } else if (higherRange < guessTwoDisplay) {
@@ -162,6 +160,7 @@ function errorGuess2() {
     error.classList.add('hidden');
   }
 }
+
 /* ------- Buttons ------ */
 function resetInputs(event) {
   inputsArray.forEach(function(element) {
@@ -240,7 +239,7 @@ function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
 }
 function deleteCard() {
   if (event.target.className === 'del-btn') {
-    event.target.parentElement.parentElement.remove();
+      event.target.parentElement.parentElement.remove();
  }
 }
 function incrementRange() {
