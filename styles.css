@@ -262,6 +262,9 @@ section.game-btn {
   align-items: center;
  }
 
+.thin {
+  font-weight: 100;
+}
 /* ------------ Unicorn-------- */
 
 .unicorn-jail {

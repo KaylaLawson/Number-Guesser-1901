@@ -211,8 +211,8 @@ function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
           </div>
         </article>
         <article class='win-card-bot wc-styling'>
-         <h5><span class='num-of-guesses'>${counter}</span> GUESSES</h5>
-          <h5><span class='num-of-minutes'>${secondsTest}</span> MINUTES</h5>
+         <h5><span class='num-of-guesses'>${counter}</span> <span class="thin">GUESSES</span></h5>
+          <h5><span class='num-of-minutes'>${secondsTest}</span> <span class="thin">MINUTES</span></h5>
           <button class='del-btn'>&times;</button>
       </article>
     </div>
