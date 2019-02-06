@@ -186,13 +186,13 @@ function appendCard() {
     generateCard();
   }
 }
-function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
+function generateCard(cardName1, cardName2, winner, counter, secondsCard) {
   var cardName1 = chalName1Input.value;
   var cardName2 = chalName2Input.value;
   var winner;
   var counter = counterNum;
   var secondsTest = seconds / 60;
-  console.log(secondsTest, 'test')
+  var secondsCard = Math.round(secondsTest * 100) / 100;
   var alertChalOne = document.querySelector('.high-low-1').innerText;
   var cardLocal = document.querySelector('.leaderboard');
   if (alertChalOne === 'BOOM!') {
@@ -217,7 +217,7 @@ function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
         </article>
         <article class='win-card-bot wc-styling'>
          <h5><span class='num-of-guesses'>${counter}</span> <span class="thin">GUESSES</span></h5>
-          <h5><span class='num-of-minutes'>${secondsTest}</span> <span class="thin">MINUTES</span></h5>
+          <h5><span class='num-of-minutes'>${secondsCard}</span> <span class="thin">MINUTES</span></h5>
           <button class='del-btn'>&times;</button>
       </article>
     </div>
