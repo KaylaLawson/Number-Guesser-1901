@@ -28,7 +28,7 @@ updateBtn.addEventListener('click', setRange);
 submitBtn.addEventListener('click', submitGuess);
 resetBtn.addEventListener('click', resetInputs);
 clearBtn.addEventListener('click', clearGame);
-infoBox.addEventListener('keyup', disableBtn);
+infoBox.addEventListener('change', disableBtn);
 window.onload = randomNumber(1, 100);
 
 // FUNCTIONS (╯°□°）╯︵ ┻┻
@@ -188,6 +188,7 @@ function resetInputs(event) {
   displayCurMin.innerText = " 1 ";
   displayCurMax.innerText = " 100 ";
   randomNumber(1,100);
+  disableBtn();
 }
 
 function clearGame(event) {
@@ -195,17 +196,19 @@ function clearGame(event) {
   displayCurMin.innerText = " 1 ";
   displayCurMax.innerText = " 100 ";
   resetInputs();
+  disableBtn();
 }
 
 function disableBtn(event) {
-  if (guessOne.value !== "" || guessTwo.value !== "" || chalName1Input.value !== "" || chalName2Input.value !== ""){
-  document.getElementById('disable-btn').disabled=false;
-  document.getElementById('disable-btn1').disabled=false; 
-  } else if (guessOne.value === "" && guessTwo.value === "" && chalName1Input.value === "" && chalName2Input.value === ""){
-  document.getElementById('disable-btn').disabled=true;
-  document.getElementById('disable-btn1').disabled=true;   
-  };
-
+  var resetBtn = document.getElementById('disable-btn');
+  var clearBtn = document.getElementById('disable-btn1');
+  if (guessOne.value !== "" || guessTwo.value !== "" || chalName1Input.value !== "" || chalName2Input.value !== "") {
+    resetBtn.disabled = false;
+    clearBtn.disabled = false; 
+  } else if (guessOne.value === "" && guessTwo.value === "" && chalName1Input.value === "" && chalName2Input.value === "") {
+    resetBtn.disabled = true;
+    clearBtn.disabled = true;    
+  }
 }
 
 // append card // 
@@ -216,6 +219,7 @@ function appendCard() {
     generateCard();
   }
 }
+
 function generateCard(cardName1, cardName2, winner, counter, seconds) {
   var cardName1 = chalName1Input.value;
   var cardName2 = chalName2Input.value;
@@ -251,8 +255,8 @@ function generateCard(cardName1, cardName2, winner, counter, seconds) {
     </div>
     `
     cardLocal.innerHTML += card;
+}
 
-  }
 function deleteCard() {
   if (event.target.className === 'del-btn') {
 
