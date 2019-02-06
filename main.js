@@ -112,6 +112,7 @@ function submitGuess(event) {
   guessTwoDisplay.innerText = parseInt(guessTwo.value);
   lsNameChange1.innerText = chalName1Input.value;
   lsNameChange2.innerText = chalName2Input.value;
+  startTimer();
   errorGuess1();
   errorGuess2();
   errorName1();
@@ -188,7 +189,9 @@ function resetInputs(event) {
   displayCurMin.innerText = " 1 ";
   displayCurMax.innerText = " 100 ";
   randomNumber(1,100);
+  endTimer()
   disableBtn();
+
 }
 
 function clearGame(event) {
@@ -196,6 +199,7 @@ function clearGame(event) {
   displayCurMin.innerText = " 1 ";
   displayCurMax.innerText = " 100 ";
   resetInputs();
+  endTimer()
   disableBtn();
 }
 
@@ -220,11 +224,13 @@ function appendCard() {
   }
 }
 
-function generateCard(cardName1, cardName2, winner, counter, seconds) {
+function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
   var cardName1 = chalName1Input.value;
   var cardName2 = chalName2Input.value;
   var winner;
   var counter = counterNum;
+  var secondsTest = seconds / 60;
+  console.log(secondsTest, 'test')
   var alertChalOne = document.querySelector('.high-low-1').innerText;
   var cardLocal = document.querySelector('.leaderboard');
   if (alertChalOne === 'BOOM!') {
@@ -249,7 +255,7 @@ function generateCard(cardName1, cardName2, winner, counter, seconds) {
         </article>
         <article class="win-card-bot wc-styling">
          <h5><span class="num-of-guesses">${counter}</span> GUESSES</h5>
-          <h5><span class="num-of-minutes">${seconds}</span> MINUTES</h5>
+          <h5><span class="num-of-minutes">${secondsTest}</span> MINUTES</h5>
           <button class="del-btn">&times;</button>
       </article>
     </div>
@@ -276,24 +282,18 @@ function incrementRange() {
   }
 }
 
+
 //------------ function jail--------------//
-  // function determineTime() {
-//   seconds++;
-// }
+  function timerCount() {
+  seconds++;
+}
 
-// function startTimer(){
-//   var seconds = 0;
-//   var alertChalOne = document.querySelector('.high-low-1').innerText;
-//   var alertChalTwo = document.querySelector('.high-low-2').innerText;
-//   if(alertChalOne !=='BOOM!') {
-//     setInterval(determineTime, 1000);
-//   } else  {
-//     seconds = 0;
+function startTimer() {
+   setInterval(timerCount, 1000);
+}
 
-//   clearInterval(timerStart);
-//   console.log('look at this');
-
-//   }
-// }
+function endTimer() {
+  seconds = 0;
+}
 
 
