@@ -81,8 +81,8 @@ function submitGuess(event) {
   lsNameChange1.innerText = chalName1Input.value;
   lsNameChange2.innerText = chalName2Input.value;
   startTimer();
-  errorGuess(checkGuessOne, guessOne, error1);
-  errorGuess(checkGuessTwo, guessTwo, error2);
+  errorGuess(guessOneValue, guessOne, error1);
+  errorGuess(guessTwoValue, guessTwo, error2);
   errorName(chalName1Input, errorName1);
   errorName(chalName2Input, errorName2);
   challengerAlert(checkGuessOne, alertChalOne);
@@ -180,7 +180,6 @@ function appendCard() {
   } else if(parseInt(guessOne.value) === randoNum || parseInt(guessTwo.value) === randoNum) {
     generateCard();
   }
-    endTimer();
 }
 function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
   var cardName1 = chalName1Input.value;
@@ -234,15 +233,19 @@ function incrementRange() {
     displayCurMin.innerText = lowIncrement -= 10;
     displayCurMax.innerText = highIncrement += 10;
     randomNumber(lowIncrement, highIncrement);
+    seconds = 0;
+    counterNum = 0;
+    //?????///
   }
 }
+
 /* ------- Extensions ---------- */
 
 function timerCount() {
   seconds++;
 }
 function startTimer() {
-   setInterval(timerCount, 1000);
+  setInterval(timerCount, 1000);
 }
 function endTimer() {
   seconds = 0;
