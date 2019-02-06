@@ -64,10 +64,10 @@ function submitGuess(event) {
   var guessTwoDisplay = document.querySelector('.guess-display-2');
   var lsNameChange1 = document.querySelector('.updated-name-1');
   var lsNameChange2 = document.querySelector('.updated-name-2');
-  var checkGuessTwo = parseInt(guessTwo.value);
-  var alertChalTwo = document.querySelector('.high-low-2');
   var checkGuessOne = parseInt(guessOne.value);
+  var checkGuessTwo = parseInt(guessTwo.value);
   var alertChalOne = document.querySelector('.high-low-1');
+  var alertChalTwo = document.querySelector('.high-low-2');
   var errorName1 = document.querySelector('.name-1-err');
   var errorName2 = document.querySelector('.name-2-err');
   var guessOneValue = guessOne.value;
@@ -79,8 +79,8 @@ function submitGuess(event) {
   lsNameChange1.innerText = chalName1Input.value;
   lsNameChange2.innerText = chalName2Input.value;
   startTimer();
-  errorGuess(guessOneValue, guessOne, error1);
-  errorGuess(guessTwoValue, guessTwo, error2);
+  errorGuess(checkGuessOne, guessOne, error1);
+  errorGuess(checkGuessTwo, guessTwo, error2);
   errorName(chalName1Input, errorName1);
   errorName(chalName2Input, errorName2);
   challengerAlert(checkGuessOne, alertChalOne);
@@ -137,7 +137,7 @@ function errorGuess(guessValue, display, error) {
   if (lowerRange > guessValue || guessValue === '') {
     display.classList.add('guess-err');
     error.classList.remove('hidden');
-  } else if (higherRange < guessValue ||guessValue === '') {
+  } else if (higherRange < guessValue || guessValue === '') {
     display.classList.add('guess-err');
     error.classList.remove('hidden');
   } else {
@@ -182,6 +182,7 @@ function appendCard() {
   } else if(parseInt(guessOne.value) === randoNum || parseInt(guessTwo.value) === randoNum) {
     generateCard();
   }
+    endTimer();
 }
 function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
   var cardName1 = chalName1Input.value;
