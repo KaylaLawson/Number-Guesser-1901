@@ -218,6 +218,30 @@ section.game-btn {
   text-align: center;
 }
 
+.clear-leaderboard {
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.clear-leaderboard-container {
+  display:flex;
+  justify-content: center;
+  align-content:center;
+  width: 300px;
+}
+.clear-lb-btn {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.ls-divider {
+  border-right:1.5px solid lightgrey;
+  transform: translateY(-15px);
+}
 /* -----------Right Side Styling ----------*/
 
 .leaderboard {

@@ -1,9 +1,9 @@
 // GLOBAL VARIABLES  (ⓛﻌⓛ*)
-var deleteBtn = document.querySelector('.del-btn');
 var updateBtn = document.querySelector('.update-btn');
 var submitBtn = document.querySelector('.submit-guess-btn');
 var resetBtn = document.querySelector('.reset-game-btn');
 var clearBtn = document.querySelector('.clear-game-btn');
+var deleteLeaderboardBtn = document.querySelector('.clear-lb-btn');
 var chalName1Input = document.querySelector('.chal-name-1');
 var chalName2Input = document.querySelector('.chal-name-2');
 var inputsArray = document.querySelectorAll('.inputs');
@@ -12,10 +12,10 @@ var guessOne = document.querySelector('.chal-guess-1');
 var guessTwo = document.querySelector('.chal-guess-2');
 var displayCurMin = document.querySelector('.cur-min');
 var displayCurMax = document.querySelector('.cur-max');
+var leaderboard = document.querySelector('.leaderboard');
 var randoNum;
 var counterNum = 0;
 var seconds = 0;
-var leaderboard = document.querySelector('.leaderboard');
 
 // function factory ( ͡o ͜ʖ ͡o) // 
 
@@ -26,6 +26,7 @@ updateBtn.addEventListener('click', setRange);
 submitBtn.addEventListener('click', submitGuess);
 resetBtn.addEventListener('click', resetInputs);
 clearBtn.addEventListener('click', clearGame);
+deleteLeaderboardBtn.addEventListener('click', deleteLeaderboard)
 infoBox.addEventListener('change', disableBtn);
 window.onload = randomNumber(1, 100);
 
@@ -224,6 +225,11 @@ function generateCard(cardName1, cardName2, winner, counter, secondsCard) {
     `
 
     cardLocal.insertAdjacentHTML('afterbegin', card);
+}
+function deleteLeaderboard() {
+  var elem = document.querySelectorAll('.win-card').forEach(function(elem){
+    elem.remove();
+  });
 }
 function deleteCard() {
   if (event.target.className === 'del-btn') {
