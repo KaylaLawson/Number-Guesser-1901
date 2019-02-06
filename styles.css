@@ -8,14 +8,9 @@
 }
 /* ----------GLOBAL STYLING------------ */
 
-}
-body {
-  display: flex;
-}
-
-
 main {
-  display: inline-flex;
+  background: #F5F6F8;
+  display: flex;
   width: 100%;
   justify-content: space-around;
   height:100vh;
@@ -28,22 +23,24 @@ main {
 article {
   margin: 15px;
 }
-button {
-background: lightgrey;
-border-radius: 30px;
-border: none;
-color: white;
-font-size: 15px;
-font-weight: 900;
-height: 35px;
-margin-bottom: 20px;
-width: 120px;
-outline: none;
 
+button {
+  background: lightgrey;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 900;
+  height: 35px;
+  margin-bottom: 20px;
+  width: 120px;
+  outline: none;
 }
+
 button:hover {
   background-color: #595959;
 }
+
 .del-btn {
   width: 34px;
   font-size: 24px;
@@ -51,44 +48,49 @@ button:hover {
   margin-top: -6px;
   background-color: #8C8C8C;
   font-weight: 300;
-
 }
 
 /* -----------Text Styling ----------*/
+
 h1 {
   font-size: 55px;
   font-weight: 1000;
   color: #DC528A;
 }
+
 h2 {
   font-size: 30px;
   font-weight:900;
   color:#7F7F7F;
-
 }
+
 .guess-text {
   font-weight: 100;
 }
+
 .uce-text {
   color: white;
   font-weight: 100;
   margin-left: 12px;
   margin-right: 12px;
 }
+
 h3 {
   margin-bottom:30px;
 }
+
 h4 {
   padding: 5px 0px 0px 10px;
   color: #555559;
   font-size: 20px;
   font-weight: 900;
 }
+
 h5 {
  color: #6E6E6E;
  font-size: 16px;
-
 }
+
 label {
   color: #727279;
   font-weight: normal;
@@ -102,6 +104,7 @@ header {
   display: flex;
   margin: 0px;
  }
+
  .cur-guess {
   font-weight: 100;
   font-size: 16px;
@@ -112,60 +115,71 @@ header {
   font-weight: 100;
   font-size:20px;
   color:#7F7F7F;
-
 }
+
 .range-text {
   padding:5px 0 0 10px;
   color: #555559;
 }
+
 .uce-container {
   display: inline-flex;
   padding:5px;
-  }
+}
+
 hr {
   width: 300px;
 }
+
 .line {
   width: 85px;
   border-top: 2px white solid;
   margin-top: 12px;
-
 }
 
 /*---------- Box Styling ------------*/
+
 .box-container {
   display: inline-flex;
-
 }
+
 .flex-column {
   flex-direction: column;
   display: flex;
   margin: 5px 10px 20px 10px;
-  }
+}
+
 .flex-center {
   display:flex;
   justify-content: center;
 }
+
 input {
   height: 30px;
   width: 156px;
-
 }
+
 /*-------- error--------- */
+
 .guess-err {
   border: 1px hotpink solid;
 }
+
 .err-text {
   font-size: 12px;
   color: hotpink;
 }
+
 /* -----------Left Side Styling -----------*/
+
 .player-info {
   width: 100%;
   background-color: #F5F6F8;
 }
+
 form.set-range-form {
   display:flex;
+  padding: 0 10px 0 0;
 }
 
 .button-container {
@@ -199,42 +213,50 @@ section.game-btn {
 .latest-score-sty{
   margin: 10px;
   text-align: center;
-
 }
+
 /* -----------Right Side Styling ----------*/
+
 .leaderboard {
   width: 100%;
   background-color:#D1D2D4;
   overflow:scroll;
 }
+
 .win-card {
   background-color:white;
   margin: 10px 30px 10px 30px;
   border: grey 0.5px solid;
 }
+
 .win-card-mid {
   width: 100;
   justify-content:center;
   display: flex;
   margin: 0px;
 }
+
 .win-card-bot {
   margin-bottom: -10px;
 }
+
 .w-background {
   background-color: white;
   border: lightgrey 0.5px solid;
 }
+
 .wc-styling {
   width: 93%;
   justify-content: space-around;
   display: inline-flex;
 }
+
 .border-top-bot{ 
-border-top: 1.5px lightgrey solid;
-border-bottom: 1.5px lightgrey solid;
+  border-top: 1.5px lightgrey solid;
+  border-bottom: 1.5px lightgrey solid;
  }
- .align-center {
+
+.align-center {
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -278,13 +300,16 @@ border-bottom: 1.5px lightgrey solid;
 
 /* ------------ MEDIA QUERIES -------- */
 
-/*@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 980px) {
 
-  .leader-board {
-    background-color: black;
+  main {
     display: flex;
     flex-direction: column;
   }
+
+  .leaderboard {
+    background-color: black;
+  }
 }
-*/
+
 
