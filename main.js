@@ -33,7 +33,7 @@ window.onload = randomNumber(1, 100);
 
 // FUNCTIONS (╯°□°）╯︵ ┻┻
 
-// if no value use 1 or 100 woop
+
 function setRange(event) {
   event.preventDefault();
   var newMin = document.querySelector('.inp-min-range');
@@ -87,6 +87,7 @@ function challengerAlert1() {
     alertChalOne.innerText = "guess";
   }
 }
+
 function challengerAlert2() {
   var checkGuessTwo = parseInt(guessTwo.value);
   var alertChalTwo = document.querySelector('.high-low-2');
@@ -102,6 +103,7 @@ function challengerAlert2() {
     alertChalTwo.innerText = "guess";
   }
 }
+
 function submitGuess(event) {
   counterNum++;
   var guessOneDisplay = document.querySelector('.guess-display-1');
@@ -191,7 +193,6 @@ function resetInputs(event) {
   randomNumber(1,100);
   endTimer()
   disableBtn();
-
 }
 
 function clearGame(event) {
@@ -265,8 +266,7 @@ function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
 
 function deleteCard() {
   if (event.target.className === 'del-btn') {
-
-  event.target.parentElement.parentElement.remove();
+    event.target.parentElement.parentElement.remove();
  }
 }
 
@@ -284,7 +284,8 @@ function incrementRange() {
 
 
 //------------ function jail--------------//
-  function timerCount() {
+
+function timerCount() {
   seconds++;
 }
 
