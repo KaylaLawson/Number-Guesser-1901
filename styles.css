@@ -20,6 +20,7 @@ main {
   justify-content: space-around;
   height:100vh;
 }
+
 .hidden {
   display:none;
 }
@@ -272,8 +273,18 @@ border-bottom: 1.5px lightgrey solid;
   100% {
     margin-top: -500px;
     margin-left: 10000px;
-  }
-  
-
+  } 
 }
+
+/* ------------ MEDIA QUERIES -------- */
+
+/*@media only screen and (max-width: 1200px) {
+
+  .leader-board {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+  }
+}
+*/
 
