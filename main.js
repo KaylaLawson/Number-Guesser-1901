@@ -66,19 +66,23 @@ function submitGuess(event) {
   var guessTwoDisplay = document.querySelector('.guess-display-2');
   var lsNameChange1 = document.querySelector('.updated-name-1');
   var lsNameChange2 = document.querySelector('.updated-name-2');
-  var checkGuessTwo = parseInt(guessTwo.value);
-  var alertChalTwo = document.querySelector('.high-low-2');
   var checkGuessOne = parseInt(guessOne.value);
+  var checkGuessTwo = parseInt(guessTwo.value);
   var alertChalOne = document.querySelector('.high-low-1');
+  var alertChalTwo = document.querySelector('.high-low-2');
   var errorName1 = document.querySelector('.name-1-err');
   var errorName2 = document.querySelector('.name-2-err');
+  var guessOneValue = guessOne.value;
+  var guessTwoValue = guessTwo.value;
+  var error1 = document.querySelector('.guess-1-err');
+  var error2 = document.querySelector('.guess-2-err');
   guessOneDisplay.innerText = parseInt(guessOne.value);
   guessTwoDisplay.innerText = parseInt(guessTwo.value);
   lsNameChange1.innerText = chalName1Input.value;
   lsNameChange2.innerText = chalName2Input.value;
   startTimer();
-  errorGuess1();
-  errorGuess2();
+  errorGuess(checkGuessOne, guessOne, error1);
+  errorGuess(checkGuessTwo, guessTwo, error2);
   errorName(chalName1Input, errorName1);
   errorName(chalName2Input, errorName2);
   challengerAlert(checkGuessOne, alertChalOne);
@@ -102,16 +106,16 @@ function clearError(newMin, newMax, targetMinRangeErr) {
     targetMinRangeErr.classList.add('hidden');
 }
 function challengerAlert(checkValue, alertChal) {
-     if (checkValue === randoNum) {
-      alertChal.innerText = 'BOOM!'
-      var element = document.getElementById('unicorn-jail')
-       element.classList.toggle('unicorn')
-      } else if (checkValue < randoNum) {
-      alertChal.innerText = 'that\'s too low!' 
-      } else if (checkValue > randoNum) { 
-      alertChal.innerText = 'that\'s too high!';
-      } else{
-       alertChal.innerText = 'guess';
+   if (checkValue === randoNum) {
+    alertChal.innerText = 'BOOM!'
+    var element = document.getElementById('unicorn-jail')
+     element.classList.toggle('unicorn')
+    } else if (checkValue < randoNum) {
+    alertChal.innerText = 'that\'s too low!' 
+    } else if (checkValue > randoNum) { 
+    alertChal.innerText = 'that\'s too high!';
+    } else{
+     alertChal.innerText = 'guess';
     }
 }
 
@@ -124,40 +128,18 @@ function errorName(chal, error) {
     error.classList.add('hidden');
   }
 }
-
-function errorGuess1() {
-  var guessOneDisplay = guessOne.value;
-  var guessTwoDisplay = guessTwo.value;
+function errorGuess(guessValue, display, error) {
   var lowerRange = parseInt(displayCurMin.innerText);
   var higherRange = parseInt(displayCurMax.innerText);
-  var error = document.querySelector('.guess-1-err');
-  if (lowerRange > guessOneDisplay || guessOneDisplay === '') {
-    guessOne.classList.add('guess-err');
+  if (lowerRange > guessValue || guessValue === '') {
+    display.classList.add('guess-err');
     error.classList.remove('hidden');
-  } else if (higherRange < guessOneDisplay || guessOneDisplay === '') {
-    guessOne.classList.add('guess-err');
-    error.classList.remove('hidden');
-  } else {
-    guessOne.classList.remove('guess-err');
-    error.classList.add('hidden');
-  }
-}
-
-function errorGuess2() {
-  var guessOneDisplay = guessOne.value;
-  var guessTwoDisplay = guessTwo.value;
-  var lowerRange = parseInt(displayCurMin.innerText);
-  var higherRange = parseInt(displayCurMax.innerText);
-  var error = document.querySelector('.guess-2-err');
-    if (lowerRange > guessTwoDisplay || guessTwoDisplay === '') {
-    guessTwo.classList.add('guess-err')
-    error.classList.remove('hidden');
-  } else if (higherRange < guessTwoDisplay) {
-    guessTwo.classList.add('guess-err')
+  } else if (higherRange < guessValue || guessValue === '') {
+    display.classList.add('guess-err');
     error.classList.remove('hidden');
   } else {
-    guessTwo.classList.remove('guess-err')
-    error.classList.add('hidden');
+     display.classList.remove('guess-err');
+     error.classList.add('hidden');
   }
 }
 
@@ -198,6 +180,7 @@ function appendCard() {
   } else if(parseInt(guessOne.value) === randoNum || parseInt(guessTwo.value) === randoNum) {
     generateCard();
   }
+    endTimer();
 }
 function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
   var cardName1 = chalName1Input.value;

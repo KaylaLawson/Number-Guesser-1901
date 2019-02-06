@@ -267,6 +267,7 @@ section.game-btn {
 .unicorn-jail {
 
 }
+
 .unicorn {
   width: 300px;
   height: 300px;
@@ -299,7 +300,7 @@ section.game-btn {
 }
 
 /* ------------ MEDIA QUERIES -------- */
-
+/*
 @media only screen and (max-width: 980px) {
 
   main {
@@ -310,6 +311,6 @@ section.game-btn {
   .leaderboard {
     background-color: black;
   }
-}
+}*/
 
 
