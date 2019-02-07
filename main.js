@@ -34,7 +34,6 @@ window.onload = randomNumber(1, 100);
 
 
 /* ----------- Gameplay --------*/
-
 function setRange(event) {
   event.preventDefault();
   var newMin = document.querySelector('.inp-min-range');
@@ -54,13 +53,11 @@ function setRange(event) {
     clearError(newMin, newMax, targetMinRangeErr);
   }
 }
-
 function randomNumber(min, max) {
   console.log(min, max);
   randoNum = Math.floor(Math.random()*(max - min + 1)) + min;
   console.log(randoNum);
 }
-
 function submitGuess(event) {
   counterNum++;
   var guessOneDisplay = document.querySelector('.guess-display-1');
@@ -107,19 +104,18 @@ function clearError(newMin, newMax, targetMinRangeErr) {
     targetMinRangeErr.classList.add('hidden');
 }
 function challengerAlert(checkValue, alertChal) {
-   if (checkValue === randoNum) {
+  if (checkValue === randoNum) {
     alertChal.innerText = 'BOOM!'
     var element = document.getElementById('unicorn-jail')
-     element.classList.toggle('unicorn')
-    } else if (checkValue < randoNum) {
+    element.classList.toggle('unicorn')
+  } else if (checkValue < randoNum) {
     alertChal.innerText = 'that\'s too low!' 
-    } else if (checkValue > randoNum) { 
+  } else if (checkValue > randoNum) { 
     alertChal.innerText = 'that\'s too high!';
-    } else{
-     alertChal.innerText = 'guess';
-    }
+  } else{
+    alertChal.innerText = 'guess';
+  }
 }
-
 function errorName(chal, error) {
   if (chal.value === '' ) {
     chal.classList.add('guess-err');
@@ -139,8 +135,8 @@ function errorGuess(guessValue, display, error) {
     display.classList.add('guess-err');
     error.classList.remove('hidden');
   } else {
-     display.classList.remove('guess-err');
-     error.classList.add('hidden');
+    display.classList.remove('guess-err');
+    error.classList.add('hidden');
   }
 }
 
@@ -202,28 +198,27 @@ function generateCard(cardName1, cardName2, winner, counter, secondsCard) {
     winner = cardName2;
   }
   var card = `
-  <div class='win-card'>
-        <article class='win-card-top wc-styling'>
-          <h5 class='card-name-1'>${cardName1}</h5>
-         <span class='cur-guess'>vs</span>
-         <h5 class='card-name-2'>${cardName2}</h5>
-        </article>
-        <article class='win-card-mid border-top-bot'>
-          <div class='flex-column'>
-            <div class='align-center'>
-              <h2>${winner}</h2>
-              <h2 class='win flex-center'>WINNER</h2>
-            </div>
+    <div class='win-card'>
+      <article class='win-card-top wc-styling'>
+        <h5 class='card-name-1'>${cardName1}</h5>
+        <span class='cur-guess'>vs</span>
+        <h5 class='card-name-2'>${cardName2}</h5>
+      </article>
+      <article class='win-card-mid border-top-bot'>
+        <div class='flex-column'>
+          <div class='align-center'>
+            <h2>${winner}</h2>
+            <h2 class='win flex-center'>WINNER</h2>
           </div>
-        </article>
-        <article class='win-card-bot wc-styling'>
-         <h5><span class='num-of-guesses'>${counter}</span> <span class="thin">GUESSES</span></h5>
-          <h5><span class='num-of-minutes'>${secondsCard}</span> <span class="thin">MINUTES</span></h5>
-          <button class='del-btn'>&times;</button>
+        </div>
+      </article>
+      <article class='win-card-bot wc-styling'>
+        <h5><span class='num-of-guesses'>${counter}</span> <span class="thin">GUESSES</span></h5>
+        <h5><span class='num-of-minutes'>${secondsCard}</span> <span class="thin">MINUTES</span></h5>
+        <button class='del-btn'>&times;</button>
       </article>
     </div>
-    `
-
+  `
     cardLocal.insertAdjacentHTML('afterbegin', card);
 }
 function deleteLeaderboard() {
@@ -233,7 +228,7 @@ function deleteLeaderboard() {
 }
 function deleteCard() {
   if (event.target.className === 'del-btn') {
-      event.target.parentElement.parentElement.remove();
+    event.target.parentElement.parentElement.remove();
  }
 }
 function incrementRange() {
@@ -251,7 +246,6 @@ function incrementRange() {
 }
 
 /* ------- Extensions ---------- */
-
 function timerCount() {
   seconds++;
 }
