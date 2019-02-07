@@ -1,9 +1,9 @@
 // GLOBAL VARIABLES  (ⓛﻌⓛ*)
-var deleteBtn = document.querySelector('.del-btn');
 var updateBtn = document.querySelector('.update-btn');
 var submitBtn = document.querySelector('.submit-guess-btn');
 var resetBtn = document.querySelector('.reset-game-btn');
 var clearBtn = document.querySelector('.clear-game-btn');
+var deleteLeaderboardBtn = document.querySelector('.clear-lb-btn');
 var chalName1Input = document.querySelector('.chal-name-1');
 var chalName2Input = document.querySelector('.chal-name-2');
 var inputsArray = document.querySelectorAll('.inputs');
@@ -12,10 +12,10 @@ var guessOne = document.querySelector('.chal-guess-1');
 var guessTwo = document.querySelector('.chal-guess-2');
 var displayCurMin = document.querySelector('.cur-min');
 var displayCurMax = document.querySelector('.cur-max');
+var leaderboard = document.querySelector('.leaderboard');
 var randoNum;
 var counterNum = 0;
 var seconds = 0;
-var leaderboard = document.querySelector('.leaderboard');
 
 // function factory ( ͡o ͜ʖ ͡o) // 
 
@@ -26,6 +26,7 @@ updateBtn.addEventListener('click', setRange);
 submitBtn.addEventListener('click', submitGuess);
 resetBtn.addEventListener('click', resetInputs);
 clearBtn.addEventListener('click', clearGame);
+deleteLeaderboardBtn.addEventListener('click', deleteLeaderboard)
 infoBox.addEventListener('change', disableBtn);
 window.onload = randomNumber(1, 100);
 
@@ -81,8 +82,8 @@ function submitGuess(event) {
   lsNameChange1.innerText = chalName1Input.value;
   lsNameChange2.innerText = chalName2Input.value;
   startTimer();
-  errorGuess(checkGuessOne, guessOne, error1);
-  errorGuess(checkGuessTwo, guessTwo, error2);
+  errorGuess(guessOneValue, guessOne, error1);
+  errorGuess(guessTwoValue, guessTwo, error2);
   errorName(chalName1Input, errorName1);
   errorName(chalName2Input, errorName2);
   challengerAlert(checkGuessOne, alertChalOne);
@@ -168,9 +169,14 @@ function disableBtn(event) {
   if (guessOne.value !== '' || guessTwo.value !== '' || chalName1Input.value !== '' || chalName2Input.value !== '') {
     resetBtn.disabled = false;
     clearBtn.disabled = false; 
+    resetBtn.classList.remove('color-btn');
+    clearBtn.classList.remove('color-btn');   
+
   } else if (guessOne.value === '' && guessTwo.value === '' && chalName1Input.value === '' && chalName2Input.value === '') {
     resetBtn.disabled = true;
-    clearBtn.disabled = true;    
+    clearBtn.disabled = true;
+    resetBtn.classList.add('color-btn');
+    clearBtn.classList.add('color-btn');   
   }
 }
 /* -------- On Win --------- */
@@ -180,15 +186,14 @@ function appendCard() {
   } else if(parseInt(guessOne.value) === randoNum || parseInt(guessTwo.value) === randoNum) {
     generateCard();
   }
-    endTimer();
 }
-function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
+function generateCard(cardName1, cardName2, winner, counter, secondsCard) {
   var cardName1 = chalName1Input.value;
   var cardName2 = chalName2Input.value;
   var winner;
   var counter = counterNum;
   var secondsTest = seconds / 60;
-  console.log(secondsTest, 'test')
+  var secondsCard = Math.round(secondsTest * 100) / 100;
   var alertChalOne = document.querySelector('.high-low-1').innerText;
   var cardLocal = document.querySelector('.leaderboard');
   if (alertChalOne === 'BOOM!') {
@@ -212,13 +217,19 @@ function generateCard(cardName1, cardName2, winner, counter, secondsTest) {
           </div>
         </article>
         <article class='win-card-bot wc-styling'>
-         <h5><span class='num-of-guesses'>${counter}</span> GUESSES</h5>
-          <h5><span class='num-of-minutes'>${secondsTest}</span> MINUTES</h5>
+         <h5><span class='num-of-guesses'>${counter}</span> <span class="thin">GUESSES</span></h5>
+          <h5><span class='num-of-minutes'>${secondsCard}</span> <span class="thin">MINUTES</span></h5>
           <button class='del-btn'>&times;</button>
       </article>
     </div>
     `
-    cardLocal.innerHTML += card;
+
+    cardLocal.insertAdjacentHTML('afterbegin', card);
+}
+function deleteLeaderboard() {
+  var elem = document.querySelectorAll('.win-card').forEach(function(elem){
+    elem.remove();
+  });
 }
 function deleteCard() {
   if (event.target.className === 'del-btn') {
@@ -234,15 +245,18 @@ function incrementRange() {
     displayCurMin.innerText = lowIncrement -= 10;
     displayCurMax.innerText = highIncrement += 10;
     randomNumber(lowIncrement, highIncrement);
+    seconds = 0;
+    counterNum = 0;
   }
 }
+
 /* ------- Extensions ---------- */
 
 function timerCount() {
   seconds++;
 }
 function startTimer() {
-   setInterval(timerCount, 1000);
+  setInterval(timerCount, 1000);
 }
 function endTimer() {
   seconds = 0;

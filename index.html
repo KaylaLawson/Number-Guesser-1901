@@ -4,6 +4,7 @@
   <title>Number Guesser</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <header>
@@ -32,7 +33,7 @@
         </form>
       </article>
       <article class="chal-info w-background">
-        <p class = "range-text">The Current Range is <u><span class="cur-min"> 1</span></u>  to <u><span class="cur-max"> 100 </span></u></p>
+        <p class = "range-text">The Current Range is <u><strong><span class="cur-min"> 1</span></strong></u>  to <strong><u><span class="cur-max"> 100 </span></u></strong></p>
           <h4>Challenger 1</h4>
           <form class="chal-form">
             <div class="flex-column">
@@ -61,12 +62,12 @@
         </form>
         <section class="game-btn">
           <button class="submit-guess-btn">SUBMIT GUESS</button>
-          <button class="reset-game-btn" id="disable-btn1" disabled>RESET GAME</button>
-          <button class="clear-game-btn" id="disable-btn" disabled>CLEAR GAME</button>
+          <button class="reset-game-btn color-btn" id="disable-btn1" disabled>RESET GAME</button>
+          <button class="clear-game-btn color-btn" id="disable-btn" disabled>CLEAR GAME</button>
         </section>
       </article>   
       <article class="latest-score w-background">
-      <h4>Latest Score</h4>
+        <h4>Latest Score</h4>
         <div class="guess-container">
           <section class="latest-score-sty">
             <h5 class="updated-name-1">Challenger 1 Name</h5>
@@ -74,6 +75,8 @@
             <h1 class="guess-display-1">#</h1>
             <span class="high-low-1 hl-text">guess</span>
           </section>
+          <div class="ls-divider">
+          </div>
           <section class="latest-score-sty">
              <h5 class="updated-name-2">Challenger 2 Name</h5>
              <span class="cur-guess">current guess </span>
@@ -81,7 +84,14 @@
              <span class="high-low-2 hl-text">guess</span>
          </section>
         </div>
-      </article>  
+      </article> 
+      <article class="w-background">
+        <section class="clear-leaderboard">
+          <div class="clear-leaderboard-container">
+            <button class="clear-lb-btn">Clear Leaderboard</button>
+          </div>
+        </section>
+      </article> 
     </section>
     <section class="leaderboard">
      <!-- appended card -->

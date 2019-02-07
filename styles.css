@@ -25,7 +25,7 @@ article {
 }
 
 button {
-  background: lightgrey;
+  background: #595959;
   border-radius: 30px;
   border: none;
   color: white;
@@ -38,7 +38,10 @@ button {
 }
 
 button:hover {
-  background-color: #595959;
+  border: solid hotpink 3px;
+}
+.color-btn {
+  background-color: lightgrey;
 }
 
 .del-btn {
@@ -215,12 +218,37 @@ section.game-btn {
   text-align: center;
 }
 
+.clear-leaderboard {
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.clear-leaderboard-container {
+  display:flex;
+  justify-content: center;
+  align-content:center;
+  width: 300px;
+}
+.clear-lb-btn {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.ls-divider {
+  border-right:1.5px solid lightgrey;
+  transform: translateY(-15px);
+}
 /* -----------Right Side Styling ----------*/
 
 .leaderboard {
   width: 100%;
   background-color:#D1D2D4;
   overflow:scroll;
+  height: 100vh;
 }
 
 .win-card {
@@ -262,6 +290,9 @@ section.game-btn {
   align-items: center;
  }
 
+.thin {
+  font-weight: 100;
+}
 /* ------------ Unicorn-------- */
 
 .unicorn-jail {
@@ -300,17 +331,66 @@ section.game-btn {
 }
 
 /* ------------ MEDIA QUERIES -------- */
-/*
-@media only screen and (max-width: 980px) {
+
+@media only screen and (max-width: 960px) {
 
   main {
-    display: flex;
     flex-direction: column;
+    justify-content:flex-start;
+    align-items:center;
+  }
+  .player-info {
+    width:70%;
+    display:block;
+    margin:0;
   }
 
   .leaderboard {
-    background-color: black;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height:auto;
+    overflow:scroll;
   }
-}*/
+  .win-card {
+    width:67%;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .player-info {
+    overflow: scroll;
+  }
+  form.set-range-form,
+  form.chal-form,
+  .game-btn {
+    display: flex;
+    flex-direction: column;
+}
+.inputs, 
+.inp-max-range,
+.inp-min-range {
+  width: 90%;
+}
+.chal-guess-1,
+.chal-guess-2 {
+  width:90%;
+}
+.game-btn {
+  display:flex;
+  align-items: center;
+
+}
+h1 {
+  font-size:35px;
+}
+.uce-text {
+  font-size:15px;
+}
+.line {
+  width: 30px;
+}
+
+}
 
 
