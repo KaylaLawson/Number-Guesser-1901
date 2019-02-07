@@ -24,9 +24,11 @@ The game is mobile friendly.
 
 ![screencapture-file-users-groot-desktop-mod1-1901-number-guesser-index-html-2019-02-07-01_45_43](https://user-images.githubusercontent.com/37053236/52419946-5a597900-2aae-11e9-9be8-2b01c275aa59.png)
 
+![screencapture-file-users-groot-desktop-mod1-1901-number-guesser-index-html-2019-02-07-01_47_03](https://user-images.githubusercontent.com/37053236/52419957-61808700-2aae-11e9-95ec-f16d60ca4ff2.png)
+
 #### Mobile View: 
 
-![screencapture-file-users-groot-desktop-mod1-1901-number-guesser-index-html-2019-02-07-01_47_03](https://user-images.githubusercontent.com/37053236/52419957-61808700-2aae-11e9-95ec-f16d60ca4ff2.png)
+
 
 
 
