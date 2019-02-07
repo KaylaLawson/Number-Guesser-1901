@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Number Guesser</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <header>
-    <h1 class="num-text">NUMBER<span class="guess-text">GUESSER</span></h1>
-    <div class = "uce-container">
-      <span class="line"></span><h3 class="uce-text">ULTIMATE CHALLENGER EDITION</h3><span class="line"></span>
-    </div>
-  </header>
-  <main>
-    <section class="player-info">
-      <article class="set-range w-background">
-        <h4 class="heading">Set Range</h4>
-        <form class="set-range-form">
+  <head>
+    <title>Number Guesser</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <header>
+      <h1 class="num-text">NUMBER<span class="guess-text">GUESSER</span></h1>
+      <div class = "uce-container">
+        <span class="line"></span><h3 class="uce-text">ULTIMATE CHALLENGER EDITION</h3><span class="line"></span>
+      </div>
+    </header>
+    <main>
+      <section class="player-info">
+        <article class="set-range w-background">
+          <h4 class="heading">Set Range</h4>
+          <form class="set-range-form">
             <div class="flex-column">
               <label class="min-range"> Min Range </label>
               <input class="inp-min-range" type="number">
@@ -30,10 +30,10 @@
             <div class="button-container">
               <button class="update-btn">UPDATE</button>
             </div>
-        </form>
-      </article>
-      <article class="chal-info w-background">
-        <p class = "range-text">The Current Range is <u><strong><span class="cur-min"> 1</span></strong></u>  to <strong><u><span class="cur-max"> 100 </span></u></strong></p>
+          </form>
+        </article>
+        <article class="chal-info w-background">
+          <p class = "range-text">The Current Range is <u><strong><span class="cur-min"> 1</span></strong></u>  to <strong><u><span class="cur-max"> 100 </span></u></strong></p>
           <h4>Challenger 1</h4>
           <form class="chal-form">
             <div class="flex-column">
@@ -47,58 +47,58 @@
               <span class="err-text guess-1-err hidden">Invalid Number</span>
             </div>
           </form>
-        <h4>Challenger 2</h4>
-        <form class="chal-form">
+          <h4>Challenger 2</h4>
+          <form class="chal-form">
             <div class="flex-column">
-             <label class="chal-name">Name</label>
-             <input  class="chal-name-2 inputs" type="text">
+              <label class="chal-name">Name</label>
+              <input  class="chal-name-2 inputs" type="text">
               <span class="err-text name-2-err hidden">Invalid Name</span>
-           </div>
-           <div class="flex-column">
-             <label class="chal-guess">Guess</label>
-             <input class="chal-guess-2 inputs" type="number">
+            </div>
+            <div class="flex-column">
+              <label class="chal-guess">Guess</label>
+              <input class="chal-guess-2 inputs" type="number">
               <span class="err-text guess-2-err hidden">Invalid Number</span>
            </div>
-        </form>
-        <section class="game-btn">
-          <button class="submit-guess-btn">SUBMIT GUESS</button>
-          <button class="reset-game-btn color-btn" id="disable-btn1" disabled>RESET GAME</button>
-          <button class="clear-game-btn color-btn" id="disable-btn" disabled>CLEAR GAME</button>
-        </section>
-      </article>   
-      <article class="latest-score w-background">
-        <h4>Latest Score</h4>
-        <div class="guess-container">
-          <section class="latest-score-sty">
-            <h5 class="updated-name-1">Challenger 1 Name</h5>
-            <span class="cur-guess">current guess</span>
-            <h1 class="guess-display-1">#</h1>
-            <span class="high-low-1 hl-text">guess</span>
+          </form>
+          <section class="game-btn">
+            <button class="submit-guess-btn">SUBMIT GUESS</button>
+            <button class="reset-game-btn color-btn" id="disable-btn1" disabled>RESET GAME</button>
+            <button class="clear-game-btn color-btn" id="disable-btn" disabled>CLEAR GAME</button>
           </section>
-          <div class="ls-divider">
+        </article>   
+        <article class="latest-score w-background">
+          <h4>Latest Score</h4>
+          <div class="guess-container">
+            <section class="latest-score-sty">
+              <h5 class="updated-name-1">Challenger 1 Name</h5>
+              <span class="cur-guess">current guess</span>
+              <h1 class="guess-display-1">#</h1>
+              <span class="high-low-1 hl-text">guess</span>
+            </section>
+            <div class="ls-divider">
+            </div>
+            <section class="latest-score-sty">
+               <h5 class="updated-name-2">Challenger 2 Name</h5>
+               <span class="cur-guess">current guess </span>
+               <h1 class="guess-display-2">#</h1>
+               <span class="high-low-2 hl-text">guess</span>
+           </section>
           </div>
-          <section class="latest-score-sty">
-             <h5 class="updated-name-2">Challenger 2 Name</h5>
-             <span class="cur-guess">current guess </span>
-             <h1 class="guess-display-2">#</h1>
-             <span class="high-low-2 hl-text">guess</span>
-         </section>
-        </div>
-      </article> 
-      <article class="w-background">
-        <section class="clear-leaderboard">
-          <div class="clear-leaderboard-container">
-            <button class="clear-lb-btn">Clear Leaderboard</button>
-          </div>
-        </section>
-      </article> 
-    </section>
-    <section class="leaderboard">
-     <!-- appended card -->
-    </section>
-  </main>
-  <div id="unicorn-jail">
-  </div>
-</body>
-<script type="text/javascript" src="main.js"></script>
+        </article> 
+        <article class="w-background">
+          <section class="clear-leaderboard">
+            <div class="clear-leaderboard-container">
+              <button class="clear-lb-btn">Clear Leaderboard</button>
+            </div>
+          </section>
+        </article> 
+      </section>
+      <section class="leaderboard">
+        <!-- appended card -->
+      </section>
+    </main>
+    <div id="unicorn-jail">
+    </div>
+  </body>
+  <script type="text/javascript" src="main.js"></script>
 </html>
