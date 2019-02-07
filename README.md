@@ -28,6 +28,8 @@ The game is mobile friendly.
 
 #### Mobile View: 
 
+![screencapture-file-users-groot-desktop-mod1-1901-number-guesser-index-html-2019-02-07-08_23_51](https://user-images.githubusercontent.com/37053236/52422058-9393e800-2ab2-11e9-9d48-45988901ffac.png)
+
 
 
 
