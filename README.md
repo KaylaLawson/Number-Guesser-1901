@@ -25,6 +25,7 @@ The game is mobile friendly.
 
 #### iPad View: 
 
+![screencapture-file-users-groot-desktop-mod1-1901-number-guesser-index-html-2019-02-07-11_37_10](https://user-images.githubusercontent.com/37053236/52434569-debaf480-2acc-11e9-9feb-cc0ccf1d5486.png)
 
 #### Mobile View: 
 
