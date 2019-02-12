@@ -17,8 +17,6 @@ var randoNum;
 var counterNum = 0;
 var seconds = 0;
 
-// function factory ( ͡o ͜ʖ ͡o) // 
-
 // EVENT LISTENERS ʕ•ᴥ•ʔ//
 
 leaderboard.addEventListener('click', deleteCard);
@@ -217,8 +215,7 @@ function generateCard(cardName1, cardName2, winner, counter, secondsCard) {
         <h5><span class='num-of-minutes'>${secondsCard}</span> <span class="thin">MINUTES</span></h5>
         <button class='del-btn'>&times;</button>
       </article>
-    </div>
-  `
+    </div>`
     cardLocal.insertAdjacentHTML('afterbegin', card);
 }
 function deleteLeaderboard() {
